@@ -1,5 +1,5 @@
 const initialState = {
-
+    nicknames: []
 } 
 
 const reducer = (state = initialState, action) => {
