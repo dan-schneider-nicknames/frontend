@@ -21,5 +21,18 @@ export const setNicknames = () => ({
 
 export const getNicknames = () => dispatch => {
     dispatch(makeRequest())
+    // make call 
+}
 
+export const LIKE_NICKNAME = "LIKE_NICKNAME"
+
+export const likeNickname = () => dispatch => {
+    dispatch(makeRequest())
+    // make call
+}
+export const UNLIKE_NICKNAME = "UNLIKE_NICKNAME"
+
+export const unlikeNickname = () => dispatch => {
+    dispatch(makeRequest())
+    // make call
 }
