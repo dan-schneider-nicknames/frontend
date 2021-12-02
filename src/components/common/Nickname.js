@@ -15,7 +15,7 @@ export default function Nickname(props) {
         <li>
             <h3>{nickname}</h3>
             <h4>created by {username}</h4>
-            <span>{likes} Likes</span>
+            <span>{likes + (liked ? 1 : 0)} Likes</span>
             <button onClick={handleLike}>
                 {liked && "un"}like
             </button>
