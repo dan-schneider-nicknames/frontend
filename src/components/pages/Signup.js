@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from "../common/Form"
+import { signupSchema } from "../../schemas/users"
 
 const initialState = {
     email: "",
@@ -14,6 +15,7 @@ export default function Signup() {
         <div>
             <Form 
                 initialState={initialState} 
+                schema={signupSchema}
                 submit={submit}
             />
         </div>

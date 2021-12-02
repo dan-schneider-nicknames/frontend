@@ -16,27 +16,33 @@ export default function Form(props) {
         <form onSubmit={onSubmit}>
             {
                 Object.keys(formState).map(value => 
-                    <>
-                        <Input 
-                            name={value}
-                            value={formState[value]}
-                            handleChange={handleChange}
-                        />
-                        <Error 
-                            errorType={value}
-                            error={errors[value]}
-                        />
-                    </>
+                    <Input 
+                        name={value}
+                        value={formState[value]}
+                        handleChange={handleChange}
+                    />
+                )
+            }
+            {
+                Object.keys(errors).map(value => 
+                    <Error 
+                        errorType={value}
+                        error={errors[value]}
+                    />
                 )
             }
             <button 
                 type="reset"
                 onClick={reset}
-            >Reset</button>
+            >
+                Reset
+            </button>
             <button
-                disabled={disabled} 
                 type="submit"
-            >Submit</button>
+                disabled={disabled} 
+            >
+                Submit
+            </button>
         </form>
     )
 }
