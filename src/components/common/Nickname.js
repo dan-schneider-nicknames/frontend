@@ -13,10 +13,19 @@ export default function Nickname(props) {
 
     return (
         <li>
-            <h3>{nickname}</h3>
-            <h4>created by {username}</h4>
-            <span>{likes} Likes</span>
-            <button onClick={handleLike}>
+            <h3 data-testid="nickname">
+                {nickname}
+            </h3>
+            <h4 data-testid="creator">
+                Created by {username}
+            </h4>
+            <span data-testid="likes">
+                {likes} Likes
+            </span>
+            <button 
+                data-testid="like-btn" 
+                onClick={handleLike}
+            >
                 {liked && "un"}like
             </button>
         </li>
