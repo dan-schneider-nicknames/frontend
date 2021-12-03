@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 
 export default function Input(props) {
     const { name, value, handleChange } = props
@@ -22,4 +23,13 @@ export default function Input(props) {
             />
         </label>
     )
+}
+Input.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.oneOf([
+        PropTypes.string, 
+        PropTypes.number, 
+        PropTypes.bool
+    ]).isRequired,
+    handleChange: PropTypes.func.isRequired
 }

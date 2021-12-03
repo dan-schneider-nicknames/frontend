@@ -2,6 +2,7 @@ import React from 'react'
 import Input from './Input'
 import Error from './Error'
 import useForm from '../../hooks/useForm'
+import PropTypes from "prop-types"
 
 export default function Form(props) {
     const { initialState, schema, submit } = props
@@ -45,4 +46,9 @@ export default function Form(props) {
             </button>
         </form>
     )
+}
+Form.propTypes = {
+    initialState: PropTypes.object.isRequired,
+    schema: PropTypes.object,
+    submit: PropTypes.func.isRequired
 }

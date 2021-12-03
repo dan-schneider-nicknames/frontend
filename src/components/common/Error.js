@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 
 export default function Error(props) {
     const { error, errorType } = props
@@ -8,4 +9,8 @@ export default function Error(props) {
             {errorType}: {error}
         </div>
     )
+}
+Error.propTypes = {
+    error: PropTypes.string.isRequired,
+    errorType: PropTypes.string.isRequired
 }

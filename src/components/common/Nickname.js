@@ -1,5 +1,6 @@
 import React from 'react'
 import useToggle from '../../hooks/useToggle'
+import PropTypes from "prop-types"
 
 export default function Nickname(props) {
     const { username, nickname, likes } = props
@@ -21,4 +22,9 @@ export default function Nickname(props) {
             </button>
         </li>
     )
+}
+Nickname.propTypes = {
+    username: PropTypes.string.isRequired,
+    nickname: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired,
 }
