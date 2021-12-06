@@ -18,6 +18,7 @@ export default function Form(props) {
             {
                 Object.keys(formState).map(value => 
                     <Input 
+                        key={`${value}input`}
                         name={value}
                         value={formState[value]}
                         handleChange={handleChange}
@@ -27,6 +28,7 @@ export default function Form(props) {
             {
                 Object.keys(errors).map(value => 
                     <Error 
+                        key={`${value}error`}
                         errorType={value}
                         error={errors[value]}
                     />
