@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react"
 import * as yup from 'yup'
 
@@ -25,8 +26,7 @@ const useForm = (initialState, schema) => {
   useEffect(() => {
     if (schema) {
       schema.isValid(form)
-        .then(() => setDisabled(false))
-        .catch(() => setDisabled(true))
+        .then(valid => setDisabled(!valid))
     }
   }, [form]) //eslint-disable-line
   

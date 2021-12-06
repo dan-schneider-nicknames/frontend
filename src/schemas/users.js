@@ -14,6 +14,7 @@ const signupSchema = yup.object().shape({
     email: yup.string().email().trim(),
 })
 
+
 export {
     loginSchema,
     signupSchema

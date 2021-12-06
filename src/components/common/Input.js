@@ -1,3 +1,4 @@
+import React from "react"
 import PropTypes from "prop-types"
 
 export default function Input(props) {
@@ -26,7 +27,7 @@ export default function Input(props) {
 }
 Input.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.oneOf([
+    value: PropTypes.oneOfType([
         PropTypes.string, 
         PropTypes.number, 
         PropTypes.bool
