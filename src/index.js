@@ -13,7 +13,7 @@ import theme from "./styles/theme"
 
 const store = createStore(reducer, applyMiddleware(thunk))
 // const client = new ApolloClient({
-//   uri: ""
+//   uri: "https://schneider-nicknames.herokuapp.com/"
 // })
 
 ReactDOM.render(
