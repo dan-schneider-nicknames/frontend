@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Form from '../common/Form'
 import { loginSchema } from '../../schemas/users'
 import { Link } from 'react-router-dom'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../../gqlStatements/mutations'
 
 const initialState = {
     username: "",
@@ -9,8 +11,17 @@ const initialState = {
 }
 
 export default function Login() {
+    const [login, { data, loading, error }] = useMutation(LOGIN)
 
-    const onSubmit = () => {}
+    const onSubmit = form => {
+        login({ variables: form })
+    }
+    
+
+    useEffect(() => {
+        console.table(data)
+        console.table(error)
+    }, [loading])
 
     return (
         <div>
