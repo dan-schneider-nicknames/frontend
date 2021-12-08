@@ -2,6 +2,7 @@ import React from 'react'
 import Form from "../common/Form"
 import { signupSchema } from "../../schemas/users"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const initialState = {
     email: "",
@@ -10,7 +11,21 @@ const initialState = {
 }
 
 export default function Signup() {
-    const submit = () => {}
+    const submit = form => {
+        console.log(form)
+        const { email, username, password } = form
+
+        axios
+            .post("https://schneider-nicknames.herokuapp.com/", {
+                query: `
+                    mutation {
+                        addUser(email: ${email}, username: ${username}, password: ${password}) 
+                    }
+                `
+            })
+            .then(console.log)
+            .catch(console.log)
+    }
     
     return (
         <div>
