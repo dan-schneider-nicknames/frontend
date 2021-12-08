@@ -8,24 +8,25 @@ import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 import { ThemeProvider } from 'styled-components';
 import theme from "./styles/theme"
-// import ApolloClient from 'apollo-client';
-// import { ApolloProvider } from "react-apollo"
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 
 const store = createStore(reducer, applyMiddleware(thunk))
-// const client = new ApolloClient({
-//   uri: "https://schneider-nicknames.herokuapp.com/"
-// })
+
+const client = new ApolloClient({
+  uri: "https://schneider-nicknames.herokuapp.com/",
+  cache: new InMemoryCache()
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <ApolloProvider client={client}> */}
+      <ApolloProvider client={client}>
         <Provider store={store}>
           <Router>
             <App />
           </Router>
         </Provider>
-      {/* </ApolloProvider> */}
+      </ApolloProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
