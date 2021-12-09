@@ -7,14 +7,6 @@ import Nicknames from "./components/pages/Nicknames"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { connect } from "react-redux"
 
-// const client = new ApolloClient({
-//   uri: "https://schneider-nicknames.herokuapp.com/",
-//   cache: new InMemoryCache(),
-//   headers: {
-//     Authorization: localStorage.getItem("token")
-//   }
-// })
-
 function App(props) {
   const { token } = props 
 

@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client'
 import { LOGIN_CALL } from '../../gqlStatements/mutations'
 import { useNavigate } from 'react-router'
 import { connect } from 'react-redux'
-import { login } from "../../state/actions"
+import { setToken } from "../../state/actions"
 
 const initialState = {
     username: "",
@@ -14,7 +14,7 @@ const initialState = {
 }
 
 function Login(props) {
-    const { login } = props
+    const { setToken } = props
 
     const navigate = useNavigate()
     const [loginCall, { data }] = useMutation(LOGIN_CALL)
@@ -23,7 +23,7 @@ function Login(props) {
 
     useEffect(() => {
         if (data) {
-            login(data.login)
+            setToken(data.login)
             navigate("/")
         }
     }, [data]) // eslint-disable-line
@@ -42,4 +42,4 @@ function Login(props) {
 }
 
 
-export default connect(null, { login })(Login)
+export default connect(null, { setToken })(Login)

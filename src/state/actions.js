@@ -1,8 +1,8 @@
 
 // import useAxiosAuth from "../hooks/useAxiosAuth"
 
-export const LOGIN = "LOGIN"
+export const SET_TOKEN = "SET_TOKEN"
 
-export const login = token => ({
-    type: LOGIN, payload: token
+export const setToken = token => ({
+    type: SET_TOKEN, payload: token
 })
