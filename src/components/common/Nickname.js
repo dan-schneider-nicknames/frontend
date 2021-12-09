@@ -3,7 +3,7 @@ import useToggle from '../../hooks/useToggle'
 import PropTypes from "prop-types"
 
 export default function Nickname(props) {
-    const { username, nickname, likes } = props
+    const { user, nickname, likes } = props
 
     const [liked, toggleLiked] = useToggle(false) // check if user like this nickname
 
@@ -15,7 +15,7 @@ export default function Nickname(props) {
     return (
         <li>
             <h3>{nickname}</h3>
-            <h4>created by {username}</h4>
+            <h4>created by {user.username}</h4>
             <span>{likes + (liked ? 1 : 0)} Likes</span>
             <button onClick={handleLike}>
                 {liked && "un"}like
@@ -24,7 +24,9 @@ export default function Nickname(props) {
     )
 }
 Nickname.propTypes = {
-    username: PropTypes.string.isRequired,
+    user: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+    }),
     nickname: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
 }
