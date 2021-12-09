@@ -1,11 +1,19 @@
+import { LOGIN } from "./actions"
 const initialState = {
-    nicknames: []
+    nicknames: [],
+    token: ""
 } 
 
 const reducer = (state = initialState, action) => {
-    const { type } = action
+    const { type, payload } = action
 
     switch(type) {
+        case LOGIN:
+            localStorage.setItem("token", payload)
+            return {
+                ...state,
+                token: payload
+            }
         default:
             return state
     }

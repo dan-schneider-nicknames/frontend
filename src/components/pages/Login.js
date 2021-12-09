@@ -3,23 +3,27 @@ import Form from '../common/Form'
 import { loginSchema } from '../../schemas/users'
 import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
-import { LOGIN } from '../../gqlStatements/mutations'
+import { LOGIN_CALL } from '../../gqlStatements/mutations'
 import { useNavigate } from 'react-router'
+import { connect } from 'react-redux'
+import { login } from "../../state/actions"
 
 const initialState = {
     username: "",
     password: ""
 }
 
-export default function Login() {
-    const navigate = useNavigate()
-    const [login, { data }] = useMutation(LOGIN)
+function Login(props) {
+    const { login } = props
 
-    const submit = form => login({ variables: form })
+    const navigate = useNavigate()
+    const [loginCall, { data }] = useMutation(LOGIN_CALL)
+
+    const submit = form => loginCall({ variables: form })
 
     useEffect(() => {
         if (data) {
-            localStorage.setItem("token", data.addUser)
+            login(data.login)
             navigate("/")
         }
     }, [data]) // eslint-disable-line
@@ -36,3 +40,6 @@ export default function Login() {
         </div>
     )
 }
+
+
+export default connect(null, { login })(Login)

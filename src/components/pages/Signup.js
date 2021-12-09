@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { SIGNUP } from '../../gqlStatements/mutations'
 import { useMutation } from '@apollo/client'
 import { useNavigate } from 'react-router'
+import { connect } from 'react-redux'
+import { login } from "../../state/actions"
 
 const initialState = {
     email: "",
@@ -12,7 +14,8 @@ const initialState = {
     password: "",
 }
 
-export default function Signup() {
+function Signup(props) {
+    const { login } = props
     const navigate = useNavigate()
     const [signup, { data }] = useMutation(SIGNUP)
 
@@ -20,7 +23,7 @@ export default function Signup() {
 
     useEffect(() => {
         if (data) {
-            localStorage.setItem("token", data.addUser)
+            login(data.addUser)
             navigate("/")
         }
     }, [data]) // eslint-disable-line
@@ -38,3 +41,5 @@ export default function Signup() {
         </div>
     )
 }
+
+export default connect(null, { login })(Signup)
