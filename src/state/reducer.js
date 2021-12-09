@@ -1,7 +1,7 @@
 import { LOGIN } from "./actions"
 const initialState = {
     nicknames: [],
-    token: ""
+    token: localStorage.getItem("token")
 } 
 
 const reducer = (state = initialState, action) => {
