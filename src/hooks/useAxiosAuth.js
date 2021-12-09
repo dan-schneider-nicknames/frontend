@@ -5,8 +5,8 @@ const useAxiosAuth = () => {
     return axios.create({
         headers: {
             Authorization: token
-        }
-        // baseUrl: 
+        },
+        baseURL: "https://schneider-nicknames.herokuapp.com/"
     })
 }
 

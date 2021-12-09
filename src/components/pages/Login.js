@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Form from '../common/Form'
 import { loginSchema } from '../../schemas/users'
 import { Link } from 'react-router-dom'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../../gqlStatements/mutations'
+import { useNavigate } from 'react-router'
 
 const initialState = {
     username: "",
@@ -9,8 +12,17 @@ const initialState = {
 }
 
 export default function Login() {
+    const navigate = useNavigate()
+    const [login, { data }] = useMutation(LOGIN)
 
-    const onSubmit = () => {}
+    const submit = form => login({ variables: form })
+
+    useEffect(() => {
+        if (data) {
+            localStorage.setItem("token", data.addUser)
+            navigate("/")
+        }
+    }, [data]) // eslint-disable-line
 
     return (
         <div>
@@ -19,7 +31,7 @@ export default function Login() {
             <Form 
                 initialState={initialState}
                 schema={loginSchema}
-                submit={onSubmit}
+                submit={submit}
             />
         </div>
     )

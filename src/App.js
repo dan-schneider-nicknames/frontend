@@ -11,6 +11,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
+      <Route path="*" element={<Signup/>}/>
     </Routes>
   );
 }
