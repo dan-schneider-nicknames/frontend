@@ -17,3 +17,11 @@ export const GET_NICKNAMES = gql`
         nickname_id
     }
 `
+
+export const LIKE = gql`
+    mutation Like($nickname_id: Integer!) {
+        likeNickname(nickname_id: $nickname_id) {
+            // tbc
+        }
+    }
+`

@@ -7,6 +7,7 @@ import Nicknames from "./components/pages/Nicknames"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { connect } from "react-redux"
 import Header from "./components/common/Header";
+import "./styles/reset.css"
 
 function App(props) {
   const { token } = props 

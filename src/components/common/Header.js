@@ -6,7 +6,6 @@ import { setToken } from "../../state/actions"
 
 const StyledHeader = styled.header`
     width: 100%;
-    margin: 1rem;
     padding: 1rem;
     display: flex;
     justify-content: space-around;
