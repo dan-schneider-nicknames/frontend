@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Form from '../common/Form'
 import { loginSchema } from '../../schemas/users'
-import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 import { LOGIN_CALL } from '../../gqlStatements/mutations'
 import { useNavigate } from 'react-router'
@@ -30,7 +29,6 @@ function Login(props) {
 
     return (
         <div>
-            <Link to="/signup">Sign Up</Link>
             <h2>Login</h2>
             <Form 
                 initialState={initialState}

@@ -9,7 +9,11 @@ const StyledHeader = styled.header`
     margin: 1rem;
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: baseline;
+    a {
+        padding: 1rem;
+    }
 `
 
 function Header(props) {

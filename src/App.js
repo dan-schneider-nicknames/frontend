@@ -6,6 +6,7 @@ import Signup from "./components/pages/Signup"
 import Nicknames from "./components/pages/Nicknames"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { connect } from "react-redux"
+import Header from "./components/common/Header";
 
 function App(props) {
   const { token } = props 
@@ -23,6 +24,7 @@ function App(props) {
 
   return (
     <ApolloProvider client={client}>
+      <Header/>
       <Routes>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
