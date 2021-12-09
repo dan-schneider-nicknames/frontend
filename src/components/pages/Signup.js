@@ -15,15 +15,15 @@ const initialState = {
 export default function Signup() {
     const navigate = useNavigate()
     const [signup, { data }] = useMutation(SIGNUP)
-    const submit = form => {
-        signup({ variables: form })
-    }
+
+    const submit = form => signup({ variables: form })
+
     useEffect(() => {
         if (data) {
             localStorage.setItem("token", data.addUser)
             navigate("/")
         }
-    }, [data])
+    }, [data]) // eslint-disable-line
 
     
     return (
