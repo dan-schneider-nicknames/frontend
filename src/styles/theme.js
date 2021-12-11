@@ -1,6 +1,11 @@
 const theme = {
-    primeColor: "black",
-    secondColor: "white",
-}
+  primeColor: "black",
+  secondColor: "white",
+  setFont: (size) => {
+    return `font-size: ${size * baseFont}rem;`;
+  },
+};
 
-export default theme
+const baseFont = 1.618 / 2;
+
+export default theme;

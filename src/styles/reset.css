@@ -48,4 +48,6 @@ table {
     margin: 0;
     box-sizing: border-box;
     max-width: 100%;
+	font-family: 'Playfair Display', serif;
+	font-size: calc(1.618rem / 2); 
 }
