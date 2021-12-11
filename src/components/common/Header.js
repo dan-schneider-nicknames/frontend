@@ -6,6 +6,8 @@ import { setToken } from "../../state/actions";
 
 const StyledHeader = styled.header`
   width: 100%;
+  color: ${(props) => props.theme.colors.teal};
+  background-color: ${(props) => props.theme.colors.purple};
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -16,6 +18,8 @@ const StyledHeader = styled.header`
   a {
     padding: 1rem;
     ${({ theme }) => theme.setFont(3)}
+    color: ${(props) => props.theme.colors.teal};
+    
   }
 `;
 

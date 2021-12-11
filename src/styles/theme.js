@@ -1,6 +1,9 @@
 const theme = {
-  primeColor: "black",
-  secondColor: "white",
+  colors: {
+    purple: "#AD40B5",
+    teal: "#66CED6",
+    navy: "#001B2E",
+  },
   setFont: (size) => {
     return `font-size: ${size * baseFont}rem;`;
   },
