@@ -1,22 +1,38 @@
-import React from 'react'
-import Form from "../common/Form"
-import schema from "../../schemas/nickname"
+import React, { useMemo, useState } from 'react'
 
-const initialState = {
-    nickname: ""
-}
 
 export default function CreateNickname() {
+    const [nickname, setNickname] = useState("")
 
-    const submit = () => {}
+    const submit = e => {
+        e.preventDefault()
+    }
+
+    const handleChange = e => {
+        setNickname(e.target.value)
+    }
+    const disabled = useMemo(() => 
+        !nickname.includes("Dan") && !nickname.includes("Schneider")
+    , [nickname])
+
     return (
         <div>
             <h2>Create a new Nickname</h2>
-            <Form
-                initialState={initialState}
-                schema={schema}
-                submit={submit}
-            />
+            <form onSubmit={submit}>
+                <label htmlFor="nickname">
+                    <input 
+                        type="text" 
+                        id="nickname" 
+                        name="nickname"
+                        onChange={handleChange}
+                        value={nickname}
+                    />
+                </label>
+                {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
+                <button type="submit" disabled={disabled}>
+                    Submit
+                </button>
+            </form>
         </div>
     )
 }

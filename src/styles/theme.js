@@ -3,6 +3,8 @@ const theme = {
     purple: "#AD40B5",
     teal: "#66CED6",
     navy: "#001B2E",
+    tan: "#FFC49B",
+    paleGreen: "#C0DA74"
   },
   setFont: (size) => {
     return `font-size: ${size * baseFont}rem;`;

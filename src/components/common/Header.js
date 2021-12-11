@@ -6,21 +6,26 @@ import { setToken } from "../../state/actions";
 
 const StyledHeader = styled.header`
   width: 100%;
-  color: ${(props) => props.theme.colors.teal};
-  background-color: ${(props) => props.theme.colors.purple};
-  padding: 1rem;
+  color: ${({ theme }) => theme.colors.teal};
+  background-color: ${({ theme }) => theme.colors.purple};
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  font-weight: 600;
   font-style: italic;
-  ${({ theme }) => theme.setFont(4)}
-  a {
-    padding: 1rem;
-    ${({ theme }) => theme.setFont(3)}
-    color: ${(props) => props.theme.colors.teal};
-    
-  }
+  a, button {
+      font-weight: 400;
+      padding: 1rem;
+      ${({ theme }) => theme.setFont(2)}
+      color: ${({ theme }) => theme.colors.teal};
+      border: none;
+      text-decoration: none;
+      background-color: ${({ theme }) => theme.colors.purple};
+      cursor: pointer;
+    }
+    h1 {
+      ${({ theme }) => theme.setFont(4)}
+      font-weight: 600;
+    }
 `;
 
 function Header(props) {
@@ -34,21 +39,25 @@ function Header(props) {
 
   return (
     <StyledHeader>
-      <h1>Dan Schneiders Nicknames</h1>
-      <nav>
-        {token ? (
-          <>
-            <Link to="/">All Nicknames</Link>
-            <Link to="/create">Create Nickname</Link>
-            <button onClick={logout}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
-          </>
-        )}
-      </nav>
+        <Link to="/">
+            <h1>
+                Dan Schneiders Nicknames
+            </h1>
+        </Link> 
+        <nav>
+            {token ? (
+            <>
+                <Link to="/">All Nicknames</Link>
+                <Link to="/create">Add Nickname</Link>
+                <button onClick={logout}>Logout</button>
+            </>
+            ) : (
+            <>
+                <Link to="/signup">Signup</Link>
+                <Link to="/login">Login</Link>
+            </>
+            )}
+        </nav>
     </StyledHeader>
   );
 }
