@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-
+import Input from "../common/Input"
 
 export default function CreateNickname() {
     const [nickname, setNickname] = useState("")
@@ -19,15 +19,11 @@ export default function CreateNickname() {
         <div>
             <h2>Create a new Nickname</h2>
             <form onSubmit={submit}>
-                <label htmlFor="nickname">
-                    <input 
-                        type="text" 
-                        id="nickname" 
-                        name="nickname"
-                        onChange={handleChange}
-                        value={nickname}
-                    />
-                </label>
+                <Input 
+                    name="nickname" 
+                    value={nickname}
+                    handleChange={handleChange}
+                />
                 {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
                 <button type="submit" disabled={disabled}>
                     Submit
