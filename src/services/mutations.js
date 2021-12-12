@@ -26,7 +26,7 @@ export const GET_NICKNAMES = gql`
 `
 
 export const LIKE = gql`
-    mutation Like($nickname_id: Integer!) {
+    mutation Like($nickname_id: ID!) {
         likeNickname(nickname_id: $nickname_id) 
     }
 `

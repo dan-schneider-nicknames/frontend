@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useToggle from '../../hooks/useToggle'
 import PropTypes from "prop-types"
 import { useMutation } from '@apollo/client'
@@ -16,15 +16,20 @@ const StyledNickname = styled.li`
 
 export default function Nickname(props) {
     const { user, nickname, likes, nickname_id } = props
-    const [like] = useMutation(LIKE, { 
+    const [like, { loading, error }] = useMutation(LIKE, { 
         errorPolicy: "all" 
     })
     const [liked, toggleLiked] = useToggle(false)
 
     const handleLike = () => {
-        like({ variables: { nickname_id } })
-        toggleLiked()
+        if (!loading) {
+            like({ variables: { nickname_id } })
+            toggleLiked()
+        }
     }
+    useEffect(() => {
+        console.log(error)
+    }, [error])
 
     return (
         <StyledNickname>
