@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Form from "../common/Form";
 import { loginSchema } from "../../schemas/users";
 import { useMutation } from "@apollo/client";
-import { LOGIN_CALL } from "../../gqlStatements/mutations";
+import { LOGIN_CALL } from "../../services/mutations";
 import { useNavigate } from "react-router";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";

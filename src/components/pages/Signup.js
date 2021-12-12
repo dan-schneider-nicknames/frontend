@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Form from "../common/Form";
 import { signupSchema } from "../../schemas/users";
-import { SIGNUP } from "../../gqlStatements/mutations";
+import { SIGNUP } from "../../services/mutations";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router";
 import { connect } from "react-redux";

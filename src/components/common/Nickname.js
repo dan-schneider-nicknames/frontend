@@ -1,14 +1,16 @@
 import React from 'react'
 import useToggle from '../../hooks/useToggle'
 import PropTypes from "prop-types"
+import { useMutation } from '@apollo/client'
+import { LIKE } from '../../services/mutations'
 
 export default function Nickname(props) {
-    const { user, nickname, likes } = props
-
+    const { user, nickname, likes, nickname_id } = props
+    const [like] = useMutation(LIKE, { errorPolicy: "all" })
     const [liked, toggleLiked] = useToggle(false) // check if user like this nickname
 
     const handleLike = () => {
-        // make api call updating like
+        like({ variables: { nickname_id } })
         toggleLiked()
     }
 

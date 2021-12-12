@@ -13,13 +13,20 @@ export const SIGNUP = gql`
 `
 
 export const GET_NICKNAMES = gql`
-    query nicknames {
-        nickname_id
+    query {
+        nicknames {
+            nickname_id
+            likes
+            nickname
+            user {
+                username
+            }
+        }
     }
 `
 
-// export const LIKE = gql`
-//     mutation Like($nickname_id: Integer!) {
-//         likeNickname(nickname_id: $nickname_id) 
-//     }
-// `
+export const LIKE = gql`
+    mutation Like($nickname_id: Integer!) {
+        likeNickname(nickname_id: $nickname_id) 
+    }
+`

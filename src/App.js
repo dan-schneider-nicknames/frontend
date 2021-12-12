@@ -9,6 +9,14 @@ import { Routes, Route } from "react-router-dom"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { connect } from "react-redux"
 import "./styles/reset.css"
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+  background-color: ${({ theme }) => theme.colors.navy};
+  color: ${({ theme }) => theme.colors.tan};
+  ${({ theme }) => theme.setFont(2)};
+  min-height: 100vh;
+`
 
 function App(props) {
   const { token } = props 
@@ -27,7 +35,7 @@ function App(props) {
   return (
     <ApolloProvider client={client}>
       <Header/>
-      <main>
+      <StyledMain>
         <Routes>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
@@ -35,7 +43,7 @@ function App(props) {
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
           <Route path="*" element={<Signup/>}/>
         </Routes>
-      </main>
+      </StyledMain>
     </ApolloProvider>
   );
 }
