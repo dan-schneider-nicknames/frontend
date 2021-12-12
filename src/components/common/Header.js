@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
+import Button from "./Button"
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -12,20 +13,10 @@ const StyledHeader = styled.header`
   justify-content: space-around;
   align-items: baseline;
   font-style: italic;
-  a, button {
-      font-weight: 400;
-      padding: 1rem;
-      ${({ theme }) => theme.setFont(2)}
-      color: ${({ theme }) => theme.colors.teal};
-      border: none;
-      text-decoration: none;
-      background-color: ${({ theme }) => theme.colors.purple};
-      cursor: pointer;
-    }
-    h1 {
-      ${({ theme }) => theme.setFont(4)}
-      font-weight: 600;
-    }
+  h1 {
+    ${({ theme }) => theme.setFont(4)}
+    font-weight: 600;
+  }
 `;
 
 function Header(props) {
@@ -40,21 +31,41 @@ function Header(props) {
   return (
     <StyledHeader>
         <Link to="/">
-            <h1>
+            <Button>
+              <h1>
                 Dan Schneiders Nicknames
-            </h1>
+              </h1>
+            </Button>
         </Link> 
         <nav>
             {token ? (
             <>
-                <Link to="/">All Nicknames</Link>
-                <Link to="/create">Add Nickname</Link>
-                <button onClick={logout}>Logout</button>
+                <Link to="/">
+                  <Button>
+                    All Nicknames
+                  </Button>
+                </Link>
+                <Link to="/create">
+                  <Button>
+                    Add Nickname
+                  </Button>
+                </Link>
+                <Button onClick={logout}>
+                  Logout
+                </Button>
             </>
             ) : (
             <>
-                <Link to="/signup">Signup</Link>
-                <Link to="/login">Login</Link>
+                <Link to="/signup">
+                  <Button>
+                    Signup
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button>
+                    Login
+                  </Button>
+                </Link>
             </>
             )}
         </nav>

@@ -12,6 +12,7 @@ import "./styles/reset.css"
 import styled from "styled-components";
 
 const StyledMain = styled.main`
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.navy};
   color: ${({ theme }) => theme.colors.tan};
   ${({ theme }) => theme.setFont(2)};
