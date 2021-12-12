@@ -8,8 +8,9 @@ import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 import { ThemeProvider } from 'styled-components';
 import theme from "./styles/theme"
+import logger from "redux-logger"
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 
 ReactDOM.render(
