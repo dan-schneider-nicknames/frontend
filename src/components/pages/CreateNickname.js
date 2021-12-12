@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import Input from "../common/Input"
+import Button from "../common/Button"
 
 export default function CreateNickname() {
     const [nickname, setNickname] = useState("")
@@ -25,9 +26,9 @@ export default function CreateNickname() {
                     handleChange={handleChange}
                 />
                 {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
-                <button type="submit" disabled={disabled}>
+                <Button type="submit" disabled={disabled}>
                     Submit
-                </button>
+                </Button>
             </form>
         </div>
     )
