@@ -4,6 +4,7 @@ import Signup from "./components/pages/Signup"
 import Nicknames from "./components/pages/Nicknames"
 import Header from "./components/common/Header";
 import CreateNickname from "./components/pages/CreateNickname";
+import UserNicknames from "./components/pages/UserNicknames";
 import React, { useMemo } from "react"
 import { Routes, Route } from "react-router-dom"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
@@ -41,6 +42,7 @@ function App(props) {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
+          <Route path="/:username" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
           <Route path="*" element={<Signup/>}/>
         </Routes>
