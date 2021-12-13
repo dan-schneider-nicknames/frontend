@@ -24,14 +24,13 @@ function App(props) {
   const { token } = props 
 
   const client = useMemo(() => {
-      return new ApolloClient({
-        uri: "https://schneider-nicknames.herokuapp.com/",
-        cache: new InMemoryCache(),
-        headers: {
-          Authorization: token
-        }
+    return new ApolloClient({
+      uri: process.env.REACT_APP_API_URL,
+      cache: new InMemoryCache(),
+      headers: {
+        authorization: token
       }
-    )
+    })
   }, [token])
 
   return (
