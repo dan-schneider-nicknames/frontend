@@ -42,7 +42,7 @@ function App(props) {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
-          <Route path="/:username" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
           <Route path="*" element={<Signup/>}/>
         </Routes>

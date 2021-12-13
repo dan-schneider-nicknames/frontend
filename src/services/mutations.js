@@ -32,6 +32,9 @@ export const GET_USER_NICKNAMES = gql`
                 likes
                 nickname
                 nickname_id
+                user {
+                    username
+                }
             }
         }
     }

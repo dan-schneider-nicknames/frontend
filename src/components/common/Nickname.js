@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useToggle from '../../hooks/useToggle'
 import PropTypes from "prop-types"
 import { useMutation } from '@apollo/client'
 import { LIKE } from '../../services/mutations'
 import styled from 'styled-components'
 import Button from "../common/Button"
+import { Link } from 'react-router-dom'
 
 const StyledNickname = styled.li`
     list-style: none;
@@ -27,14 +28,17 @@ export default function Nickname(props) {
             toggleLiked()
         }
     }
-    useEffect(() => {
-        console.log(error)
-    }, [error])
+
+    if (error) return <p>{error.message}</p>
 
     return (
         <StyledNickname>
             <h3>{nickname}</h3>
-            <p>By {user.username}</p>
+            <Link to={`/user/${user.username}`}>
+                <Button>
+                    By {user.username}
+                </Button>
+            </Link>
             <Button onClick={handleLike}>
                 {likes + (liked ? 1 : 0)} Likes
             </Button>
