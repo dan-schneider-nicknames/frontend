@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import useToggle from "../../hooks/useToggle";
 import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
@@ -22,6 +22,11 @@ export default function Nickname(props) {
   });
   const [userliked, toggleLiked] = useToggle(liked);
 
+  const totalLikes = useMemo(() => {
+    return likes + (liked ? -1 : 0) + (userliked ? 1 : 0)
+  }, [userliked, liked, likes]);
+
+
   const handleLike = () => {
     if (!loading) {
       like({ variables: { nickname_id } });
@@ -38,7 +43,7 @@ export default function Nickname(props) {
         <Button>By {user.username}</Button>
       </Link>
       <Button onClick={handleLike}>
-        {likes + (liked ? -1 : 0) + (userliked ? 1 : 0)} Likes
+        {totalLikes} Likes
       </Button>
     </StyledNickname>
   );
