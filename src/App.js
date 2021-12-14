@@ -5,10 +5,9 @@ import Nicknames from "./components/pages/Nicknames"
 import Header from "./components/common/Header";
 import CreateNickname from "./components/pages/CreateNickname";
 import UserNicknames from "./components/pages/UserNicknames";
-import React, { useMemo, useEffect } from "react"
+import React from "react"
 import { Routes, Route } from "react-router-dom"
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
-import { connect } from "react-redux"
+import {  ApolloProvider } from "@apollo/client"
 import "./styles/reset.css"
 import styled from "styled-components";
 import client from "../src/services/client"
@@ -21,23 +20,8 @@ const StyledMain = styled.main`
   min-height: 100vh;
 `
 
-function App(props) {
-  const { token } = props 
-
-  // const client = useMemo(() => {
-  //   return new ApolloClient({
-  //     uri: process.env.REACT_APP_API_URL,
-  //     cache: new InMemoryCache(),
-  //     headers: {
-  //       authorization: token
-  //     }
-  //   })
-  // }, [token])
-
-  // useEffect(() => {
-  //   console.log(client)
-  // }, [client])
-
+function App() {
+  
   return (
     <ApolloProvider client={client}>
       <Header/>
@@ -55,8 +39,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  token: state.token
-})
-
-export default connect(mapStateToProps)(App);
+export default App;

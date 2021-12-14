@@ -15,7 +15,7 @@ const StyledLoader = styled.div`
         margin: 2rem;
         width: 30px;
         height: 30px;
-        background-color: ${props => props.theme.primeColor};
+        background-color: ${props => props.theme.colors.paleGreen};
         animation: ${animation} 1s linear -.9s infinite;
         &:nth-child(2) {animation-delay: -.6s;}
         &:nth-child(3) {animation-delay: -.3s;}

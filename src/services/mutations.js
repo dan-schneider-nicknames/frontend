@@ -17,6 +17,7 @@ export const GET_NICKNAMES = gql`
         nicknames {
             nickname_id
             likes
+            liked
             nickname
             user {
                 username
@@ -30,6 +31,7 @@ export const GET_USER_NICKNAMES = gql`
         user(username: $username) {
             nicknames {
                 likes
+                liked
                 nickname
                 nickname_id
                 user {
