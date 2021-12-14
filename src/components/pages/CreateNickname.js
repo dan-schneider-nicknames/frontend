@@ -1,13 +1,19 @@
 import React, { useMemo, useState } from 'react'
 import Input from "../common/Input"
 import Button from "../common/Button"
+import { ADD_NICKNAME } from '../../services/mutations'
+import { useMutation } from '@apollo/client'
+
 
 export default function CreateNickname() {
     const [nickname, setNickname] = useState("")
+    const [makeNickname, {loading, error, data}] = useMutation(ADD_NICKNAME, {errorPolicy: "all"})
 
     const submit = e => {
         e.preventDefault()
+        makeNickname({variables: {nickname}})
     }
+    
 
     const handleChange = e => {
         setNickname(e.target.value)

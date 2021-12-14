@@ -12,6 +12,16 @@ export const SIGNUP = gql`
     }
 `
 
+export const ADD_NICKNAME = gql`
+    mutation MakeNickname($nickname: String!) {
+        addNickname(nickname: $nickname) {
+            user {
+                username
+            }
+        }
+    }
+`
+
 export const GET_NICKNAMES = gql`
     query {
         nicknames {
