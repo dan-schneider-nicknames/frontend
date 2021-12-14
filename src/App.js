@@ -5,12 +5,13 @@ import Nicknames from "./components/pages/Nicknames"
 import Header from "./components/common/Header";
 import CreateNickname from "./components/pages/CreateNickname";
 import UserNicknames from "./components/pages/UserNicknames";
-import React, { useMemo } from "react"
+import React, { useMemo, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { connect } from "react-redux"
 import "./styles/reset.css"
 import styled from "styled-components";
+import client from "../src/services/client"
 
 const StyledMain = styled.main`
   padding: 1rem;
@@ -23,15 +24,19 @@ const StyledMain = styled.main`
 function App(props) {
   const { token } = props 
 
-  const client = useMemo(() => {
-    return new ApolloClient({
-      uri: process.env.REACT_APP_API_URL,
-      cache: new InMemoryCache(),
-      headers: {
-        authorization: token
-      }
-    })
-  }, [token])
+  // const client = useMemo(() => {
+  //   return new ApolloClient({
+  //     uri: process.env.REACT_APP_API_URL,
+  //     cache: new InMemoryCache(),
+  //     headers: {
+  //       authorization: token
+  //     }
+  //   })
+  // }, [token])
+
+  // useEffect(() => {
+  //   console.log(client)
+  // }, [client])
 
   return (
     <ApolloProvider client={client}>
