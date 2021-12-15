@@ -3,13 +3,12 @@ import { useNavigate } from "react-router";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import { ADD_NICKNAME } from "../../services/mutations";
+import options from "../../services/options";
 import { useMutation } from "@apollo/client";
 
 export default function CreateNickname() {
   const [nickname, setNickname] = useState("");
-  const [makeNickname, { loading, error, data }] = useMutation(ADD_NICKNAME, {
-    errorPolicy: "all",
-  });
+  const [makeNickname, { loading, error, data }] = useMutation(ADD_NICKNAME, options);
 
   const navigate = useNavigate();
 

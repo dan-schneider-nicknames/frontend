@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
 import { DELETE_NICKNAME} from "../../services/mutations";
+import options from "../../services/options";
 import styled from "styled-components";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
@@ -17,16 +18,19 @@ const StyledNickname = styled.li`
 
 export default function Nickname(props) {
   const { user, nickname, nickname_id, createdBy, ...rest } = props;
-  const [delNick, {loading, error}] = useMutation(DELETE_NICKNAME, {
-    errorPolicy: "all",
-  });
+  const [delNick, { data, loading, error }] = useMutation(DELETE_NICKNAME, options);
         
   const handleDelete = () => {
     if (!loading) {
       delNick({ variables: { nickname_id } });
-      window.location.reload();
     }
   };
+  
+  useEffect(() => {
+    if (data) {
+      window.location.reload();
+    }
+  }, [data])
 
   if (error) return <p>{error.message}</p>;
 

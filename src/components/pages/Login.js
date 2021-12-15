@@ -3,9 +3,10 @@ import Form from "../common/Form";
 import { loginSchema } from "../../schemas/users";
 import { useMutation } from "@apollo/client";
 import { LOGIN_CALL } from "../../services/mutations";
-import { useNavigate } from "react-router";
+import options from "../../services/options";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
+import { useNavigate } from "react-router";
 
 const initialState = {
   username: "",
@@ -14,11 +15,9 @@ const initialState = {
 
 function Login(props) {
   const { setToken } = props;
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
-  const [loginCall, { data, error, loading }] = useMutation(LOGIN_CALL, {
-    errorPolicy: "all",
-  });
+  const [loginCall, { data, error, loading }] = useMutation(LOGIN_CALL, options);
 
   const submit = (form) => {
     loginCall({ variables: form });
@@ -27,7 +26,8 @@ function Login(props) {
   useEffect(() => {
     if (data && !error) {
       setToken(data.login);
-      navigate("/");
+      navigate("/")
+      window.location.reload()
     }
   }, [data]); // eslint-disable-line
 

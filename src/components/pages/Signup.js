@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Form from "../common/Form";
 import { signupSchema } from "../../schemas/users";
 import { SIGNUP } from "../../services/mutations";
+import options from "../../services/options";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router";
 import { connect } from "react-redux";
@@ -16,9 +17,7 @@ const initialState = {
 function Signup(props) {
   const { setToken } = props;
   const navigate = useNavigate();
-  const [signup, { data, loading, error }] = useMutation(SIGNUP, {
-    errorPolicy: "all",
-  });
+  const [signup, { data, loading, error }] = useMutation(SIGNUP, options);
 
   const submit = (form) => signup({ variables: form });
 
@@ -26,6 +25,7 @@ function Signup(props) {
     if (data && !error) {
       setToken(data.addUser);
       navigate("/");
+      window.location.reload()
     }
   }, [data]); // eslint-disable-line
 

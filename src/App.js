@@ -32,7 +32,7 @@ function App() {
           <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
-          <Route path="*" element={<Signup/>}/>
+          <Route path="*" element={<PrivatePage component={Nicknames}/>}/>
         </Routes>
       </StyledMain>
     </ApolloProvider>

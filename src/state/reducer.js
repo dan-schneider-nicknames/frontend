@@ -1,7 +1,6 @@
 import { SET_TOKEN } from "./actions"
 
 const initialState = {
-    nicknames: [],
     token: localStorage.getItem("token")
 } 
 

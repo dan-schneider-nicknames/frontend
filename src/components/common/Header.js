@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
 import Button from "./Button"
@@ -21,11 +21,10 @@ const StyledHeader = styled.header`
 
 function Header(props) {
   const { token, setToken } = props;
-  const navigate = useNavigate();
 
   const logout = () => {
     setToken("");
-    navigate("/");
+    window.location.reload()
   };
 
   return (

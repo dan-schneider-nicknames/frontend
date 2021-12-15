@@ -22,38 +22,6 @@ export const ADD_NICKNAME = gql`
   }
 `;
 
-export const GET_NICKNAMES = gql`
-  query {
-    nicknames {
-      nickname_id
-      likes
-      liked
-      createdBy
-      nickname
-      user {
-        username
-      }
-    }
-  }
-`;
-
-export const GET_USER_NICKNAMES = gql`
-  query Get_User_Nicknames($username: String!) {
-    user(username: $username) {
-      nicknames {
-        likes
-        liked
-        createdBy
-        nickname
-        nickname_id
-        user {
-          username
-        }
-      }
-    }
-  }
-`;
-
 export const LIKE = gql`
   mutation Like($nickname_id: ID!) {
     likeNickname(nickname_id: $nickname_id)
