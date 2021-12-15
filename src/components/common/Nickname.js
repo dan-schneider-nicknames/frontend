@@ -16,22 +16,7 @@ const StyledNickname = styled.li`
 `;
 
 export default function Nickname(props) {
-  // const [like, { loading, error }] = useMutation(LIKE, {
-    //   errorPolicy: "all",
-    // });
-    // const [userliked, toggleLiked] = useToggle(liked);
-    
-    // const totalLikes = useMemo(() => {
-      //   return likes + (liked ? -1 : 0) + (userliked ? 1 : 0);
-      // }, [userliked, liked, likes]);
-      
-      // const handleLike = () => {
-        //   if (!loading) {
-          //     like({ variables: { nickname_id } });
-          //     toggleLiked();
-          //   }
-          // };
-  const { user, nickname, likes, liked, nickname_id, createdBy } = props;
+  const { user, nickname, nickname_id, createdBy, ...rest } = props;
   const [delNick, {loading, error}] = useMutation(DELETE_NICKNAME, {
     errorPolicy: "all",
   });
@@ -45,15 +30,13 @@ export default function Nickname(props) {
 
   if (error) return <p>{error.message}</p>;
 
-  console.log(props);
-
   return (
     <StyledNickname>
       <h3>{nickname}</h3>
       <Link to={`/user/${user.username}`}>
         <Button>By {user.username}</Button>
       </Link>
-      <LikeButton likes={likes} liked={liked} nickname_id={nickname_id}/>
+      <LikeButton {...rest} nickname_id={nickname_id}/>
       {createdBy && (
         <>
           {" "}
