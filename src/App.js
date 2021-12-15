@@ -31,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/page/:page" element={<PrivatePage component={Nicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
           <Route path="*" element={<PrivatePage component={Nicknames}/>}/>
         </Routes>

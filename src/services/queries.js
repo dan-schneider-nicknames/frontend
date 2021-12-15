@@ -12,8 +12,8 @@ const wantedProperties = `
 `;
 
 export const GET_NICKNAMES = gql`
-  query {
-    nicknames {
+  query getNicknames($page: Int!){
+    nicknames(page: $page) {
       ${wantedProperties}
     }
   }
