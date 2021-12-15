@@ -22,7 +22,6 @@ function Login(props) {
 
   const submit = (form) => {
     loginCall({ variables: form });
-    console.log("Login Form", form);
   };
 
   useEffect(() => {

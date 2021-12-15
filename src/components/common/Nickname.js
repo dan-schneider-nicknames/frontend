@@ -16,16 +16,15 @@ const StyledNickname = styled.li`
 `;
 
 export default function Nickname(props) {
-  const { user, nickname, likes, liked, nickname_id } = props;
+  const { user, nickname, likes, liked, nickname_id, createdBy } = props;
   const [like, { loading, error }] = useMutation(LIKE, {
     errorPolicy: "all",
   });
   const [userliked, toggleLiked] = useToggle(liked);
 
   const totalLikes = useMemo(() => {
-    return likes + (liked ? -1 : 0) + (userliked ? 1 : 0)
+    return likes + (liked ? -1 : 0) + (userliked ? 1 : 0);
   }, [userliked, liked, likes]);
-
 
   const handleLike = () => {
     if (!loading) {
@@ -36,15 +35,17 @@ export default function Nickname(props) {
 
   if (error) return <p>{error.message}</p>;
 
+  console.log(props);
+
   return (
     <StyledNickname>
       <h3>{nickname}</h3>
       <Link to={`/user/${user.username}`}>
         <Button>By {user.username}</Button>
       </Link>
-      <Button onClick={handleLike}>
-        {totalLikes} Likes
-      </Button>
+      <Button onClick={handleLike}>{totalLikes} Likes</Button>
+      {createdBy && <> <Button> Delete </Button>
+      <Button>Edit</Button> </>}
     </StyledNickname>
   );
 }
@@ -55,4 +56,5 @@ Nickname.propTypes = {
   nickname: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
   liked: PropTypes.bool.isRequired,
+  createdBy: PropTypes.bool.isRequired,
 };

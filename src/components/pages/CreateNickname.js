@@ -19,11 +19,11 @@ export default function CreateNickname() {
   };
 
   useEffect(() => {
-    if (data && !error) {
+    if (!loading && !error && data) {
       const { username } = data.addNickname.user;
       navigate(`/user/${username}`);
     }
-  }, [data]);
+  }, [data]); // eslint-disable-line
 
   const handleChange = (e) => {
     setNickname(e.target.value);
