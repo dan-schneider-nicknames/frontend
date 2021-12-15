@@ -20,6 +20,7 @@ export default function CreateNickname() {
 
   useEffect(() => {
     if (!loading && !error && data) {
+        console.log(data)
       const { username } = data.addNickname.user;
       navigate(`/user/${username}`);
     }

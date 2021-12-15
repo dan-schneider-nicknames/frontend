@@ -59,3 +59,11 @@ export const LIKE = gql`
     likeNickname(nickname_id: $nickname_id)
   }
 `;
+
+export const DELETE_NICKNAME = gql`
+  mutation RemoveNickname($nickname_id: ID!) {
+    deleteNickname(nickname_id: $nickname_id){
+      nickname_id
+    }
+  }
+`;

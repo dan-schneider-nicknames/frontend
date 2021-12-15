@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
-import useToggle from "../../hooks/useToggle";
+import React from "react";
 import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
-import { LIKE } from "../../services/mutations";
+import { DELETE_NICKNAME} from "../../services/mutations";
 import styled from "styled-components";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
+import LikeButton from "./LikeButton";
 
 const StyledNickname = styled.li`
   list-style: none;
@@ -16,20 +16,30 @@ const StyledNickname = styled.li`
 `;
 
 export default function Nickname(props) {
+  // const [like, { loading, error }] = useMutation(LIKE, {
+    //   errorPolicy: "all",
+    // });
+    // const [userliked, toggleLiked] = useToggle(liked);
+    
+    // const totalLikes = useMemo(() => {
+      //   return likes + (liked ? -1 : 0) + (userliked ? 1 : 0);
+      // }, [userliked, liked, likes]);
+      
+      // const handleLike = () => {
+        //   if (!loading) {
+          //     like({ variables: { nickname_id } });
+          //     toggleLiked();
+          //   }
+          // };
   const { user, nickname, likes, liked, nickname_id, createdBy } = props;
-  const [like, { loading, error }] = useMutation(LIKE, {
+  const [delNick, {loading, error}] = useMutation(DELETE_NICKNAME, {
     errorPolicy: "all",
   });
-  const [userliked, toggleLiked] = useToggle(liked);
-
-  const totalLikes = useMemo(() => {
-    return likes + (liked ? -1 : 0) + (userliked ? 1 : 0);
-  }, [userliked, liked, likes]);
-
-  const handleLike = () => {
+        
+  const handleDelete = () => {
     if (!loading) {
-      like({ variables: { nickname_id } });
-      toggleLiked();
+      delNick({ variables: { nickname_id } });
+      window.location.reload();
     }
   };
 
@@ -43,9 +53,14 @@ export default function Nickname(props) {
       <Link to={`/user/${user.username}`}>
         <Button>By {user.username}</Button>
       </Link>
-      <Button onClick={handleLike}>{totalLikes} Likes</Button>
-      {createdBy && <> <Button> Delete </Button>
-      <Button>Edit</Button> </>}
+      <LikeButton likes={likes} liked={liked} nickname_id={nickname_id}/>
+      {createdBy && (
+        <>
+          {" "}
+          <Button onClick={handleDelete}> Delete </Button>
+          <Button>Edit</Button>{" "}
+        </>
+      )}
     </StyledNickname>
   );
 }
