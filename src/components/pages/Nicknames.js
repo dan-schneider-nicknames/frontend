@@ -5,8 +5,7 @@ import options from "../../services/options";
 import { useQuery } from "@apollo/client";
 import Loader from "../common/Loader";
 import Nickname from "../common/Nickname";
-import { Link } from "react-router-dom";
-import Button from "../common/Button"
+import PageLinks from "../common/PageLinks";
 
 export default function Nicknames() {
   const { page } = useParams();
@@ -21,17 +20,12 @@ export default function Nicknames() {
 
   return (
     <div>
-      {data.nicknames.map((nickname) => (
-        <Nickname {...nickname} key={nickname.nickname_id} />
-      ))}
-      <div>
-        {pageInt > 0 && <Link to={`/page/${pageInt - 1}`}>
-          <Button> Prev Page </Button>
-        </Link>}
-        <Link to={`/page/${pageInt + 1}`}>
-          <Button> Next Page </Button>
-        </Link>
-      </div>
+      <ul>
+        {data.nicknames.map((nickname) => (
+            <Nickname {...nickname} key={nickname.nickname_id} />
+        ))}
+      </ul>
+      <PageLinks/>
     </div>
   );
 }
