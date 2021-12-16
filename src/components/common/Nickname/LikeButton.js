@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import useToggle from "../../hooks/useToggle";
+import useToggle from "../../../hooks/useToggle";
 import { useMutation } from "@apollo/client";
-import { LIKE } from "../../services/mutations";
-import options from "../../services/options";
-import Button from "../common/Button";
+import { LIKE } from "../../../services/mutations";
+import options from "../../../services/options";
+import Button from "../Form/Button";
 
 
 export default function LikeButton(props) {

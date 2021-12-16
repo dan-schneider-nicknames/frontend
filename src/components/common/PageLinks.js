@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import Button from "./Button"
+import Button from "./Form/Button"
 
 
 export default function PageLinks() {

@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router";
 import { GET_NICKNAMES } from "../../services/queries";
 
-import NicknameList from "../common/NicknameList";
+import NicknameList from "../common/Nickname/NicknameList";
 import PageLinks from "../common/PageLinks";
-import QueryCall from "../common/QueryCall";
+import QueryCall from "../common/HigherOrder/QueryCall";
 
 export default function NicknamesPage() {
   const { page } = useParams();

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
-import Input from "../common/Input";
-import Button from "../common/Button";
+import Input from "../common/Form/Input";
+import Button from "../common/Form/Button";
 import { ADD_NICKNAME } from "../../services/mutations";
 import options from "../../services/options";
 import { useMutation } from "@apollo/client";

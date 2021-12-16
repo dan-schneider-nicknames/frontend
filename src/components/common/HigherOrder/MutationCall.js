@@ -1,7 +1,7 @@
 import React from 'react'
-import Loader from "./Loader"
+import Loader from "../Loader"
 import { useMutation } from '@apollo/client'
-import options from '../../services/options'
+import options from '../../../services/options'
 
 export default function MutationCall(props) {
     const { query, Component } = props

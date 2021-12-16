@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
-import Button from "./Button"
+import Button from "./Form/Button"
 
 const StyledHeader = styled.header`
   width: 100%;

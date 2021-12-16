@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
-import { DELETE_NICKNAME} from "../../services/mutations";
-import options from "../../services/options";
+import { DELETE_NICKNAME} from "../../../services/mutations";
+import options from "../../../services/options";
 import styled from "styled-components";
-import Button from "../common/Button";
+import Button from "../Form/Button";
 import { Link } from "react-router-dom";
 import LikeButton from "./LikeButton";
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
-import options from '../../services/options'
-import Loader from "./Loader"
+import options from '../../../services/options'
+import Loader from "../Loader"
 
 export default function QueryCall(props) {
     

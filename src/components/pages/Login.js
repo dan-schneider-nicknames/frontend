@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Form from "../common/Form";
+import Form from "../common/Form/Form";
 import { loginSchema } from "../../schemas/users";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";

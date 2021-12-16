@@ -1,4 +1,4 @@
-import PrivatePage from "./components/common/PrivatePage";
+import PrivatePage from "./components/common/HigherOrder/PrivatePage";
 import LoginPage from "./components/pages/LoginPage"
 import SignupPage from "./components/pages/SignupPage"
 import NicknamesPage from "./components/pages/NicknamesPage"

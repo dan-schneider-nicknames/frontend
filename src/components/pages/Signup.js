@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Form from "../common/Form";
+import Form from "../common/Form/Form";
 import { signupSchema } from "../../schemas/users";
 import { useNavigate } from "react-router";
 import { connect } from "react-redux";

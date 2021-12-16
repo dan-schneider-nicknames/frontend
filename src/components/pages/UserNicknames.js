@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import { GET_USER_NICKNAMES } from '../../services/queries'
-import QueryCall from '../common/QueryCall'
-import NicknameList from '../common/NicknameList'
+import QueryCall from '../common/HigherOrder/QueryCall'
+import NicknameList from '../common/Nickname/NicknameList'
 
 export default function UserNicknames() {
     const { username } = useParams()

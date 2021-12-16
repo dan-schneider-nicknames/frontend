@@ -2,7 +2,7 @@ import React from 'react'
 import Input from './Input'
 import Error from './Error'
 import Button from "./Button"
-import useForm from '../../hooks/useForm'
+import useForm from '../../../hooks/useForm'
 import PropTypes from "prop-types"
 
 export default function Form(props) {
