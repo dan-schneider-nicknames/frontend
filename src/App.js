@@ -1,13 +1,13 @@
 import PrivatePage from "./components/common/PrivatePage";
 import Login from "./components/pages/Login"
 import Signup from "./components/pages/Signup"
-import Nicknames from "./components/pages/Nicknames"
+import NicknamesPage from "./components/pages/NicknamesPage"
 import Header from "./components/common/Header";
 import CreateNickname from "./components/pages/CreateNickname";
 import UserNicknames from "./components/pages/UserNicknames";
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import {  ApolloProvider } from "@apollo/client"
+import { ApolloProvider } from "@apollo/client"
 import "./styles/reset.css"
 import styled from "styled-components";
 import client from "../src/services/client"
@@ -29,11 +29,11 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/" element={<PrivatePage component={Nicknames}/>}/>
+          <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
+          <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/page/:page" element={<PrivatePage component={Nicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreateNickname}/>}/>
-          <Route path="*" element={<PrivatePage component={Nicknames}/>}/>
+          <Route path="*" element={<PrivatePage component={NicknamesPage}/>}/>
         </Routes>
       </StyledMain>
     </ApolloProvider>
