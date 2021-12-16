@@ -19,9 +19,8 @@ function Login(props) {
 
   const [loginCall, { data, error, loading }] = useMutation(LOGIN_CALL, options);
 
-  const submit = (form) => {
-    loginCall({ variables: form });
-  };
+  const submit = (form) => loginCall({ variables: form });
+
 
   useEffect(() => {
     if (data && !error) {
