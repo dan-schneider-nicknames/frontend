@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Form from "../common/Form/Form";
-import { loginSchema } from "../../schemas/users";
+import Form from "./Form";
+import { loginSchema } from "../../../schemas/users";
 import { connect } from "react-redux";
-import { setToken } from "../../state/actions";
+import { setToken } from "../../../state/actions";
 import { useNavigate } from "react-router";
 
 const initialState = {

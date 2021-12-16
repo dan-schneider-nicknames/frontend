@@ -1,7 +1,7 @@
 import React from 'react'
 import MutationCall from '../common/HigherOrder/MutationCall'
 import { LOGIN_CALL } from "../../services/mutations";
-import Login from './Login';
+import Login from '../common/Form/Login';
 
 export default function LoginPage() {
     return (

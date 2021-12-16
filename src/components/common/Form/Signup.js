@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Form from "../common/Form/Form";
-import { signupSchema } from "../../schemas/users";
+import Form from "./Form";
+import { signupSchema } from "../../../schemas/users";
 import { useNavigate } from "react-router";
 import { connect } from "react-redux";
-import { setToken } from "../../state/actions";
+import { setToken } from "../../../state/actions";
 
 const initialState = {
   email: "",

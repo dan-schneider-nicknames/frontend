@@ -1,25 +1,25 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
-import Input from "../common/Form/Input";
-import Button from "../common/Form/Button";
-import { ADD_NICKNAME } from "../../services/mutations";
-import options from "../../services/options";
-import { useMutation } from "@apollo/client";
+import Input from "./Input";
+import Button from "./Button";
+// import { ADD_NICKNAME } from "../../services/mutations";
+// import options from "../../services/options";
+// import { useMutation } from "@apollo/client";
 
-export default function CreateNickname() {
+export default function CreateNickname(props) {
+  const { callMutation, data } = props
   const [nickname, setNickname] = useState("");
-  const [makeNickname, { loading, error, data }] = useMutation(ADD_NICKNAME, options);
+  // const [makeNickname, { loading, error, data }] = useMutation(ADD_NICKNAME, options);
 
   const navigate = useNavigate();
 
   const submit = (e) => {
     e.preventDefault();
-    makeNickname({ variables: { nickname } });
+    callMutation({ nickname });
   };
 
   useEffect(() => {
-    if (!loading && !error && data) {
-        console.log(data)
+    if (data) {
       const { username } = data.addNickname.user;
       navigate(`/user/${username}`);
     }
@@ -34,17 +34,15 @@ export default function CreateNickname() {
   );
 
   return (
-    <div>
+    <>
       <h2>Create a new Nickname</h2>
       <form onSubmit={submit}>
         <Input name="nickname" value={nickname} handleChange={handleChange} />
         {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
-        {loading && <p>Loading...</p>}
-        {error && <p>{error.message}</p>}
         <Button type="submit" disabled={disabled}>
           Submit
         </Button>
       </form>
-    </div>
+    </>
   );
 }
