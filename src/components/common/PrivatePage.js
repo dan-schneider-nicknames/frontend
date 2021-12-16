@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from "../pages/Login"
+import LoginPage from "../pages/LoginPage"
 
 export default function PrivatePage({ component: Component, ...rest }) {
 
     return localStorage.getItem("token") ? (
         <Component {...rest}  />
     ) : (
-        <Login/>
+        <LoginPage/>
     )
 }

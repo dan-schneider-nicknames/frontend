@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import Form from "../common/Form";
 import { loginSchema } from "../../schemas/users";
-import { useMutation } from "@apollo/client";
-import { LOGIN_CALL } from "../../services/mutations";
-import options from "../../services/options";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
 import { useNavigate } from "react-router";
@@ -14,16 +11,11 @@ const initialState = {
 };
 
 function Login(props) {
-  const { setToken } = props;
+  const { setToken, data, callMutation } = props;
   const navigate = useNavigate()
 
-  const [loginCall, { data, error, loading }] = useMutation(LOGIN_CALL, options);
-
-  const submit = (form) => loginCall({ variables: form });
-
-
   useEffect(() => {
-    if (data && !error) {
+    if (data) {
       setToken(data.login);
       navigate("/")
       window.location.reload()
@@ -31,12 +23,10 @@ function Login(props) {
   }, [data]); // eslint-disable-line
 
   return (
-    <div>
+    <>
       <h2>Login</h2>
-      <Form initialState={initialState} schema={loginSchema} submit={submit} />
-      {loading && <p>Loading...</p>}
-      {error && <p>Invalid Credentials</p>}
-    </div>
+      <Form initialState={initialState} schema={loginSchema} submit={callMutation} />
+    </>
   );
 }
 

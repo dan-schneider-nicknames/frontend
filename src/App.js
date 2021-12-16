@@ -1,5 +1,5 @@
 import PrivatePage from "./components/common/PrivatePage";
-import Login from "./components/pages/Login"
+import LoginPage from "./components/pages/LoginPage"
 import SignupPage from "./components/pages/SignupPage"
 import NicknamesPage from "./components/pages/NicknamesPage"
 import Header from "./components/common/Header";
@@ -28,7 +28,7 @@ function App() {
       <StyledMain>
         <Routes>
           <Route path="/signup" element={<SignupPage/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
           <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
