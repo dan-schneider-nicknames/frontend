@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { setToken } from "../../state/actions";
 import Button from "./Form/Button";
 
 const StyledHeader = styled.header`
@@ -19,11 +17,10 @@ const StyledHeader = styled.header`
   }
 `;
 
-function Header(props) {
-  const { token, setToken } = props;
-
+function Header() {
+  const token = localStorage.getItem("token")
   const logout = () => {
-    setToken("");
+    localStorage.removeItem("token")
     window.location.reload();
   };
 
@@ -67,8 +64,4 @@ function Header(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  token: state.token,
-});
-
-export default connect(mapStateToProps, { setToken })(Header);
+export default Header;

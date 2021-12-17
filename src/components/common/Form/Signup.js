@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import Form from "./Form";
 import { signupSchema } from "../../../schemas/users";
 import { useNavigate } from "react-router";
-import { connect } from "react-redux";
-import { setToken } from "../../../state/actions";
 
 const initialState = {
   email: "",
@@ -12,12 +10,12 @@ const initialState = {
 };
 
 function Signup(props) {
-  const { setToken, data, callMutation } = props;
+  const { data, callMutation } = props;
   const navigate = useNavigate();
 
   useEffect(() => {
     if (data?.addUser) {
-      setToken(data.addUser);
+      localStorage.setItem("token", data.addUser);
       navigate("/");
       window.location.reload()
     }
@@ -33,4 +31,4 @@ function Signup(props) {
   );
 }
 
-export default connect(null, { setToken })(Signup);
+export default Signup;
