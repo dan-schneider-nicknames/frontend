@@ -57,7 +57,7 @@ table {
 	font-family: 'Fredoka One', cursive;
 }
 
-#Creator {
+.creator {
 	font-family: "Fuzzy Bubbles", cursive;
 }
 .button {
@@ -82,18 +82,18 @@ a {
   letter-spacing: 1px;
 }
 
-#button-6 {
+.button-6 {
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
 
-#button-6 a {
+.button-6 a {
   position: relative;
   transition: all 0.45s ease-Out;
 }
 
-#spin {
+.spin {
   width: 0;
   height: 0;
   opacity: 0;
@@ -105,7 +105,7 @@ a {
   transition: all 0.5s ease-Out;
 }
 
-#button-6:hover #spin {
+.button-6:hover .spin {
   width: 400%;
   height: 500%;
   opacity: 1;
@@ -115,6 +115,6 @@ a {
   transform: rotate(460deg);
 }
 
-#button-6:hover a {
+.button-6:hover a {
   color: #51CB20;
 }

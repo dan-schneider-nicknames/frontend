@@ -40,13 +40,13 @@ export default function Nickname(props) {
     <StyledNickname>
       <h3>{nickname}</h3>
       <Link to={`/user/${user.username}`}>
-        <Button id="Creator">By {user.username}</Button>
+        <Button className="creator">By {user.username}</Button>
       </Link>
       <LikeButton {...rest} nickname_id={nickname_id}/>
       {createdBy && (
-        <>
-          <Button onClick={handleDelete}> Delete </Button>
-        </>
+        <Button onClick={handleDelete}> 
+          Delete 
+        </Button>
       )}
     </StyledNickname>
   );
