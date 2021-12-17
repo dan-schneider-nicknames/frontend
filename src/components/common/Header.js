@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "./Form/Button";
+import NavLink from "./NavLink";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -34,29 +35,14 @@ function Header() {
       <nav>
         {token ? (
           <>
-            <div class="button" id="button-6">
-              <div id="spin"></div>
-              <Link to="/">All Nicknames</Link>
-            </div>
-            <div class="button" id="button-6">
-              <div id="spin"></div>
-              <Link to="/create">Add Nickname</Link>
-            </div>
-            <div class="button" id="button-6">
-              <div id="spin"></div>
-              <a href="/" onClick={logout}>Logout</a>
-            </div>
+            <NavLink to="/">All Nicknames</NavLink>
+            <NavLink to="/create">Add Nickname</NavLink>
+            <NavLink to="" onClick={logout}>Logout</NavLink>
           </>
         ) : (
           <>
-            <div class="button" id="button-6">
-              <div id="spin"></div>
-              <Link to="/signup">Signup</Link>
-            </div>
-            <div class="button" id="button-6">
-              <div id="spin"></div>
-              <Link to="/login">Login</Link>
-            </div>
+            <NavLink to="/signup">Signup</NavLink>
+            <NavLink to="/login">Login</NavLink>
           </>
         )}
       </nav>
