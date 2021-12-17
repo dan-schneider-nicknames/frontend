@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.blue};
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   font-style: italic;
   h1 {
     ${({ theme }) => theme.setFont(4)}
@@ -43,22 +43,23 @@ function Header(props) {
             </div>
             <div class="button" id="button-6">
               <div id="spin"></div>
-              <Link to="/create">
-                Add Nickname
-              </Link>
-            </div><div class="button" id="button-6">
+              <Link to="/create">Add Nickname</Link>
+            </div>
+            <div class="button" id="button-6">
               <div id="spin"></div>
-            <a onClick={logout}>Logout</a>
+              <a onClick={logout}>Logout</a>
             </div>
           </>
         ) : (
           <>
-            <Link to="/signup">
-              <Button>Signup</Button>
-            </Link>
-            <Link to="/login">
-              <Button>Login</Button>
-            </Link>
+            <div class="button" id="button-6">
+              <div id="spin"></div>
+              <Link to="/signup">Signup</Link>
+            </div>
+            <div class="button" id="button-6">
+              <div id="spin"></div>
+              <Link to="/login">Login</Link>
+            </div>
           </>
         )}
       </nav>
