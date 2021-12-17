@@ -32,13 +32,15 @@ export default function CreateNickname(props) {
 
   return (
     <>
-      <h2>Create a new Nickname</h2>
       <StyledForm onSubmit={submit}>
-        <Input name="nickname" value={nickname} handleChange={handleChange} />
-        {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
-        <Button type="submit" disabled={disabled}>
-          Submit
-        </Button>
+        <fieldset>
+          <legend>Create a new Nickname</legend>
+          <Input name="nickname" value={nickname} handleChange={handleChange} />
+          {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
+          <Button type="submit" disabled={disabled}>
+            Submit
+          </Button>
+        </fieldset>
       </StyledForm>
     </>
   );

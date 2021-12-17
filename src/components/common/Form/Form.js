@@ -7,13 +7,20 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  border: solid ${({ theme }) => theme.colors.blue};
-  margin: 0 auto;
-  width: 50%;
+  width: 100%;
+  fieldset {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 80%;
+    border: solid ${({ theme }) => theme.colors.blue};
+  }
+  legend {
+    ${({ theme }) => theme.setFont(3)}
+    margin-left: 5rem;
+  }
 `;
 
 export default function Form(props) {
@@ -29,32 +36,32 @@ export default function Form(props) {
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <StyledForm onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit}>
+      <fieldset>
+        <legend>{title}</legend>
         {Object.keys(formState).map((value) => (
           <Input
-            key={`${value}input`}
-            name={value}
-            value={formState[value]}
-            handleChange={handleChange}
+          key={`${value}input`}
+          name={value}
+          value={formState[value]}
+          handleChange={handleChange}
           />
-        ))}
+          ))}
         {Object.keys(errors).map((value) => (
           <Error
-            key={`${value}error`}
-            errorType={value}
-            error={errors[value]}
+          key={`${value}error`}
+          errorType={value}
+          error={errors[value]}
           />
-        ))}
+          ))}
         <Button type="reset" onClick={reset}>
           Reset
         </Button>
         <Button type="submit" disabled={disabled}>
           Submit
         </Button>
-      </StyledForm>
-    </div>
+      </fieldset>
+    </StyledForm>
   );
 }
 Form.propTypes = {
