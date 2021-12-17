@@ -4,7 +4,12 @@ const theme = {
     teal: "#66CED6",
     navy: "#001B2E",
     tan: "#FFC49B",
-    paleGreen: "#C0DA74"
+    paleGreen: "#C0DA74",
+    orange: "#E17C0B",
+    slime: "#B6D90B",
+    blue: "#134D93",
+    black: "#070707",
+    lightGrey: "#CECCCC"
   },
   setFont: (size) => {
     return `font-size: ${size * baseFont}rem;`;
