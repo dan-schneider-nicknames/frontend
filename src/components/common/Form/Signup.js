@@ -25,8 +25,7 @@ function Signup(props) {
 
   return (
     <>
-      <h2>Sign Up:</h2>
-      <Form initialState={initialState} schema={signupSchema} submit={callMutation} />
+      <Form title={"Sign Up:"} initialState={initialState} schema={signupSchema} submit={callMutation} />
     </>
   );
 }

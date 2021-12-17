@@ -12,21 +12,23 @@ const initialState = {
 
 function Login(props) {
   const { setToken, data, callMutation } = props;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
       setToken(data.login);
-      navigate("/")
-      window.location.reload()
+      navigate("/");
+      window.location.reload();
     }
   }, [data]); // eslint-disable-line
 
   return (
-    <>
-      <h2>Login</h2>
-      <Form initialState={initialState} schema={loginSchema} submit={callMutation} />
-    </>
+    <Form
+      title={"Login"}
+      initialState={initialState}
+      schema={loginSchema}
+      submit={callMutation}
+    />
   );
 }
 

@@ -17,7 +17,7 @@ export const StyledForm = styled.form`
 `;
 
 export default function Form(props) {
-  const { initialState, schema, submit } = props;
+  const { title, initialState, schema, submit } = props;
   const [formState, handleChange, reset, errors, disabled] = useForm(
     initialState,
     schema
@@ -29,25 +29,32 @@ export default function Form(props) {
   };
 
   return (
-    <StyledForm onSubmit={onSubmit}>
-      {Object.keys(formState).map((value) => (
-        <Input
-          key={`${value}input`}
-          name={value}
-          value={formState[value]}
-          handleChange={handleChange}
-        />
-      ))}
-      {Object.keys(errors).map((value) => (
-        <Error key={`${value}error`} errorType={value} error={errors[value]} />
-      ))}
-      <Button type="reset" onClick={reset}>
-        Reset
-      </Button>
-      <Button type="submit" disabled={disabled}>
-        Submit
-      </Button>
-    </StyledForm>
+    <div>
+      <h2>{title}</h2>
+      <StyledForm onSubmit={onSubmit}>
+        {Object.keys(formState).map((value) => (
+          <Input
+            key={`${value}input`}
+            name={value}
+            value={formState[value]}
+            handleChange={handleChange}
+          />
+        ))}
+        {Object.keys(errors).map((value) => (
+          <Error
+            key={`${value}error`}
+            errorType={value}
+            error={errors[value]}
+          />
+        ))}
+        <Button type="reset" onClick={reset}>
+          Reset
+        </Button>
+        <Button type="submit" disabled={disabled}>
+          Submit
+        </Button>
+      </StyledForm>
+    </div>
   );
 }
 Form.propTypes = {
