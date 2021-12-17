@@ -47,7 +47,7 @@ function Header(props) {
             </div>
             <div class="button" id="button-6">
               <div id="spin"></div>
-              <a onClick={logout}>Logout</a>
+              <a href="/" onClick={logout}>Logout</a>
             </div>
           </>
         ) : (

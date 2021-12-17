@@ -15,7 +15,7 @@ function Login(props) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (data) {
+    if (data?.login) {
       setToken(data.login);
       navigate("/")
       window.location.reload()

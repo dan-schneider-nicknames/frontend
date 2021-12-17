@@ -16,7 +16,7 @@ function Signup(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data) {
+    if (data?.addUser) {
       setToken(data.addUser);
       navigate("/");
       window.location.reload()
