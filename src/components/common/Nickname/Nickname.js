@@ -20,6 +20,7 @@ const StyledNickname = styled.li`
 
 export default function Nickname(props) {
   const { user, nickname, nickname_id, createdBy, ...rest } = props;
+  const { username } = user
   const [delNick, { data, loading, error }] = useMutation(DELETE_NICKNAME, options);
         
   const handleDelete = () => {
@@ -39,8 +40,10 @@ export default function Nickname(props) {
   return (
     <StyledNickname>
       <h3>{nickname}</h3>
-      <Link to={`/user/${user.username}`}>
-        <Button className="creator">By {user.username}</Button>
+      <Link to={`/user/${username}`}>
+        <Button className="creator">
+          By {username}
+        </Button>
       </Link>
       <LikeButton {...rest} nickname_id={nickname_id}/>
       {createdBy && (
