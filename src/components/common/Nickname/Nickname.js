@@ -45,9 +45,7 @@ export default function Nickname(props) {
       <LikeButton {...rest} nickname_id={nickname_id}/>
       {createdBy && (
         <>
-          {" "}
           <Button onClick={handleDelete}> Delete </Button>
-          <Button>Edit</Button>{" "}
         </>
       )}
     </StyledNickname>

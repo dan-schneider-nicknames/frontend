@@ -6,7 +6,7 @@ import useForm from "../../../hooks/useForm";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
