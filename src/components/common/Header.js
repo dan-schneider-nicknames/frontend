@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "../../state/actions";
-import Button from "./Form/Button"
+import Button from "./Form/Button";
 
 const StyledHeader = styled.header`
   width: 100%;
   color: ${({ theme }) => theme.colors.teal};
-  background-color: ${({ theme }) => theme.colors.purple};
+  background-color: ${({ theme }) => theme.colors.blue};
   display: flex;
   justify-content: space-around;
   align-items: baseline;
@@ -24,50 +24,44 @@ function Header(props) {
 
   const logout = () => {
     setToken("");
-    window.location.reload()
+    window.location.reload();
   };
 
   return (
     <StyledHeader>
-        <Link to="/">
-            <Button>
-              <h1>
-                Dan Schneiders Nicknames
-              </h1>
-            </Button>
-        </Link> 
-        <nav>
-            {token ? (
-            <>
-                <Link to="/">
-                  <Button>
-                    All Nicknames
-                  </Button>
-                </Link>
-                <Link to="/create">
-                  <Button>
-                    Add Nickname
-                  </Button>
-                </Link>
-                <Button onClick={logout}>
-                  Logout
-                </Button>
-            </>
-            ) : (
-            <>
-                <Link to="/signup">
-                  <Button>
-                    Signup
-                  </Button>
-                </Link>
-                <Link to="/login">
-                  <Button>
-                    Login
-                  </Button>
-                </Link>
-            </>
-            )}
-        </nav>
+      <Link to="/">
+        <Button id="TitleHeader">
+          <h1>DAN SCHNEIDER NICKNAMES</h1>
+        </Button>
+      </Link>
+      <nav>
+        {token ? (
+          <>
+            <div class="button" id="button-6">
+              <div id="spin"></div>
+              <Link to="/">All Nicknames</Link>
+            </div>
+            <div class="button" id="button-6">
+              <div id="spin"></div>
+              <Link to="/create">
+                Add Nickname
+              </Link>
+            </div><div class="button" id="button-6">
+              <div id="spin"></div>
+            <a onClick={logout}>Logout</a>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link to="/signup">
+              <Button>Signup</Button>
+            </Link>
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+          </>
+        )}
+      </nav>
     </StyledHeader>
   );
 }

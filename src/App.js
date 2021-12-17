@@ -14,7 +14,7 @@ import CreatePage from "./components/pages/CreatePage";
 
 const StyledMain = styled.main`
   padding: 1rem;
-  background-color: ${({ theme }) => theme.colors.navy};
+  background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.tan};
   ${({ theme }) => theme.setFont(2)};
   min-height: 100vh;

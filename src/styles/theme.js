@@ -6,7 +6,7 @@ const theme = {
     tan: "#FFC49B",
     paleGreen: "#C0DA74",
     orange: "#E17C0B",
-    slime: "#B6D90B",
+    slime: "#51CB20",
     blue: "#134D93",
     black: "#070707",
     lightGrey: "#CECCCC"

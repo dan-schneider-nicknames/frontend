@@ -10,10 +10,12 @@ import LikeButton from "./LikeButton";
 
 const StyledNickname = styled.li`
   list-style: none;
+  font-family: "Fredoka One", cursive;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  border: solid ${({ theme }) => theme.colors.purple};
+  border: solid ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.orange};
 `;
 
 export default function Nickname(props) {
@@ -38,7 +40,7 @@ export default function Nickname(props) {
     <StyledNickname>
       <h3>{nickname}</h3>
       <Link to={`/user/${user.username}`}>
-        <Button>By {user.username}</Button>
+        <Button id="Creator">By {user.username}</Button>
       </Link>
       <LikeButton {...rest} nickname_id={nickname_id}/>
       {createdBy && (
