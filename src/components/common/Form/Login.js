@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import Form from "./Form";
 import { loginSchema } from "../../../schemas/users";
-import { connect } from "react-redux";
-import { setToken } from "../../../state/actions";
 import { useNavigate } from "react-router";
 
 const initialState = {
@@ -23,10 +21,12 @@ function Login(props) {
   }, [data]); // eslint-disable-line
 
   return (
-    <>
-      <h2>Login</h2>
-      <Form initialState={initialState} schema={loginSchema} submit={callMutation} />
-    </>
+    <Form
+      title="Login: " 
+      initialState={initialState} 
+      schema={loginSchema} 
+      submit={callMutation} 
+    />
   );
 }
 
