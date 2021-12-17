@@ -11,12 +11,12 @@ const initialState = {
 };
 
 function Login(props) {
-  const { setToken, data, callMutation } = props;
+  const { data, callMutation } = props;
   const navigate = useNavigate()
 
   useEffect(() => {
     if (data?.login) {
-      setToken(data.login);
+      localStorage.setItem("token", data.login)
       navigate("/")
       window.location.reload()
     }
@@ -30,4 +30,4 @@ function Login(props) {
   );
 }
 
-export default connect(null, { setToken })(Login);
+export default Login;
