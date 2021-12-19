@@ -54,7 +54,8 @@ export default function Nickname(props) {
     </StyledNickname>
   );
 }
-Nickname.propTypes = {
+
+export const NicknamePropTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,
   }),
@@ -62,4 +63,6 @@ Nickname.propTypes = {
   likes: PropTypes.number.isRequired,
   liked: PropTypes.bool.isRequired,
   createdBy: PropTypes.bool.isRequired,
-};
+}
+
+Nickname.propTypes = NicknamePropTypes;

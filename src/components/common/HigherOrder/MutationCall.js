@@ -23,7 +23,7 @@ export default function MutationCall(props) {
 }
 
 MutationCall.propTypes = {
-    query: PropTypes.string.isRequired,
+    query: PropTypes.object.isRequired,
     Component: PropTypes.func.isRequired,
     errorMessage: PropTypes.string
 }

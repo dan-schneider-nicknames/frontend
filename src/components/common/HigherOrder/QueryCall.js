@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import options from '../../../services/options'
 import Loader from "../Loader"
+import PropTypes from "prop-types"
 
 export default function QueryCall(props) {
     
@@ -14,4 +15,9 @@ export default function QueryCall(props) {
     return (
         <Component data={data}/>
     )
+}
+QueryCall.propTypes = {
+    query: PropTypes.object.isRequired,
+    Component: PropTypes.func.isRequired,
+    variables: PropTypes.object
 }
