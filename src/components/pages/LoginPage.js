@@ -5,6 +5,10 @@ import Login from '../common/Form/Login';
 
 export default function LoginPage() {
     return (
-        <MutationCall query={LOGIN_CALL} Component={Login}/>
+        <MutationCall 
+            query={LOGIN_CALL} 
+            Component={Login} 
+            errorMessage="Invalid Credentials"
+        />
     )
 }

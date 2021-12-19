@@ -5,7 +5,7 @@ import Button from "./Button";
 import { StyledForm } from "./Form";
 
 export default function CreateNickname(props) {
-  const { callMutation, data } = props;
+  const { callMutation, data, error, loading } = props;
   const [nickname, setNickname] = useState("");
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function CreateNickname(props) {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data && !error && !loading) {
       const { username } = data.addNickname.user;
       navigate(`/user/${username}`);
     }

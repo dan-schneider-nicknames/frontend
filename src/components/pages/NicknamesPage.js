@@ -12,12 +12,12 @@ export default function NicknamesPage() {
 
   return (
     <div>
-        <QueryCall 
-            query={GET_NICKNAMES} 
-            Component={NicknameList} 
-            variables={{ page: pageInt }}
-        />
-        <PageLinks/>
+      <QueryCall 
+        query={GET_NICKNAMES} 
+        Component={NicknameList} 
+        variables={{ page: pageInt }}
+      />
+      <PageLinks/>
     </div>
   );
 }

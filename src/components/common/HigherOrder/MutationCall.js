@@ -15,6 +15,8 @@ export default function MutationCall(props) {
             <Component 
                 callMutation={callMutation} 
                 data={data}
+                loading={loading}
+                error={error}
             />
             {loading && <Loader/>}
             {error && <p>{errorMessage || error.message}</p>}

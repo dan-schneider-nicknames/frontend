@@ -5,6 +5,6 @@ import { SIGNUP } from "../../services/mutations";
 
 export default function SignupPage() {
     return (
-       <MutationCall query={SIGNUP} Component={Signup}/>
+       <MutationCall query={SIGNUP} Component={Signup} errorMessage="Username, Email, and Password must be unique"/>
     )
 }
