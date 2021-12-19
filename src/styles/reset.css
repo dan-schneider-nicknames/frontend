@@ -76,7 +76,7 @@ table {
   overflow: hidden;
 }
 
-a {
+span {
   color: #51CB20;
   text-decoration: none;
   letter-spacing: 1px;
@@ -88,7 +88,7 @@ a {
   cursor: pointer;
 }
 
-.button-6 a {
+.button-6 span {
   position: relative;
   transition: all 0.45s ease-Out;
 }
@@ -115,6 +115,6 @@ a {
   transform: rotate(460deg);
 }
 
-.button-6:hover a, .button-6:focus a {
+.button-6:hover span, .button-6:focus span {
   color: #51CB20;
 }

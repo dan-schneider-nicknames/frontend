@@ -6,7 +6,7 @@ export default function NavLink(props) {
     return (
         <Link {...props} className="button button-6">
             <div className="spin"></div>
-            <Link {...props}>{props.children}</Link>
+            <span>{props.children}</span>
         </Link>
     )
 }
