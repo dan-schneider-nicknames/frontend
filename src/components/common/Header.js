@@ -37,7 +37,7 @@ function Header() {
           <>
             <NavLink to="/">All Nicknames</NavLink>
             <NavLink to="/create">Add Nickname</NavLink>
-            <NavLink to="" onClick={logout}>Logout</NavLink>
+            <NavLink to="/landing" onClick={logout}>Logout</NavLink>
           </>
         ) : (
           <>

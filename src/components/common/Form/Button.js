@@ -12,6 +12,10 @@ const StyledButton = styled.button`
     &:hover {
         text-decoration: underline;
     }
+    &:focus {
+        border: none
+        text-decoration: underline;
+    }
     
 `
 
