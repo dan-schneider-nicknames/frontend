@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <StyledHeader>
-      <Link to="/">
+      <Link to="/landing">
         <Button id="TitleHeader">
           <h1>DAN SCHNEIDER NICKNAMES</h1>
         </Button>

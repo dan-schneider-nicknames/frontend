@@ -1,3 +1,5 @@
-export default  {
+const options = {
     errorPolicy: "all",
 }
+
+export default options
