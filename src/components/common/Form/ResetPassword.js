@@ -1,14 +1,14 @@
 import React from 'react';
 import Form from './Form';
 import PropTypes from "prop-types";
-import { resetSchema } from "../../../schemas/reset";
+import resetSchema from "../../../schemas/reset";
 import { useParams } from 'react-router';
 
 const initialState = {
     email: '',
     password: '',
     confirmPassword: '',
-    resetToken: '',
+    // resetToken: '',
 }
 
 
