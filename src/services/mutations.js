@@ -35,3 +35,19 @@ export const DELETE_NICKNAME = gql`
     }
   }
 `;
+
+export const RESET_PASSWORD = gql`
+  mutation Reset_Password(
+    $email: String!,
+    $password: String!,
+    $confirmPassword: String!,
+    $resetToken: String!
+  ){
+    resetPassword(
+      email: $email
+      password: $password
+      confirmPassword: $confirmPassword
+      resetToken: $resetToken
+    )
+  }
+`

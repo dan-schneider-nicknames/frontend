@@ -3,7 +3,6 @@ import Form from "./Form";
 import { signupSchema } from "../../../schemas/users";
 import { useNavigate } from "react-router";
 import PropTypes from "prop-types"
-import { NicknamePropTypes } from "../Nickname/Nickname"
 
 const initialState = {
   email: "",
@@ -34,7 +33,9 @@ function Signup(props) {
 }
 
 Signup.propTypes = {
-  data: PropTypes.arrayOf(NicknamePropTypes),
+  data: PropTypes.shape({
+    addUser: PropTypes.string.isRequired
+  }),
   callMutation: PropTypes.func.isRequired
 }
 

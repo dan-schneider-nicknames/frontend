@@ -12,6 +12,7 @@ import styled from "styled-components";
 import client from "../src/services/client"
 import CreatePage from "./components/pages/CreatePage";
 import LandingPage from "./components/pages/LandingPage";
+import ResetPasswordPage from "./components/pages/ResetPasswordPage";
 
 const StyledMain = styled.main`
   padding: 1rem;
@@ -31,10 +32,12 @@ function App() {
           <Route path="/signup" element={<SignupPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/landing" element={<LandingPage/>}/>
-          <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
+          <Route path="/reset/:resetToken" element={<ResetPasswordPage/>}/>
+          <Route path="/reset" element={<ResetPasswordPage/>}/>
           <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreatePage}/>}/>
+          <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="*" element={<LandingPage/>}/>
         </Routes>
       </StyledMain>

@@ -28,3 +28,9 @@ export const GET_USER_NICKNAMES = gql`
     }
   }
 `;
+
+export const REQUEST_RESET = gql`
+  query Request_Reset($email: String!) {
+    requestReset(email: $email)
+  }
+`
