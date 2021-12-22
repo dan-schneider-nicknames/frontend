@@ -8,7 +8,6 @@ const initialState = {
     email: '',
     password: '',
     confirmPassword: '',
-    // resetToken: '',
 }
 
 
@@ -16,12 +15,15 @@ export default function ResetPassword(props) {
     const { resetToken } = useParams()
     const { data, callMutation } = props
 
+    const submit = formState => {
+        callMutation({ ...formState, resetToken })
+    }
     return (
         <Form
             title="Reset Password"
             initialState={initialState}
             schema={resetSchema}
-            submit={callMutation}
+            submit={submit}
         />
     )
 }
