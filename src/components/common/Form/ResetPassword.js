@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Form from './Form';
 import PropTypes from "prop-types";
 import resetSchema from "../../../schemas/reset";
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
 const initialState = {
     email: '',
@@ -10,14 +10,24 @@ const initialState = {
     confirmPassword: '',
 }
 
-
 export default function ResetPassword(props) {
     const { resetToken } = useParams()
     const { data, callMutation } = props
-
+    const navigate = useNavigate()
+    
     const submit = formState => {
         callMutation({ ...formState, resetToken })
     }
+    
+    useEffect(() => {
+        console.log(data)
+        if (data?.resetPassword) {
+          localStorage.setItem("token", data.resetPassword)
+          navigate("/")
+          window.location.reload()
+        }
+      }, [data]); // eslint-disable-line
+
     return (
         <Form
             title="Reset Password"
@@ -29,6 +39,5 @@ export default function ResetPassword(props) {
 }
 
 ResetPassword.propTypes = {
-    data: PropTypes.arrayOf(),
     callMutation: PropTypes.func.isRequired
 }
