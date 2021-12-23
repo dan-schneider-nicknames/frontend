@@ -28,7 +28,7 @@ function Login(props) {
         schema={loginSchema} 
         submit={callMutation} 
       />
-      <Link to="/reset">
+      <Link to="/frontend/reset">
         Forgot Password?
       </Link>
     </>
