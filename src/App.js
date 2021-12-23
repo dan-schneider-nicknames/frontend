@@ -35,16 +35,16 @@ function App() {
       <Header/>
       <StyledMain>
         <Routes>
-          <Route path="/signup" element={<SignupPage/>}/>
-          <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/landing" element={<LandingPage/>}/>
-          <Route path="/reset/:resetToken" element={<ResetPasswordPage/>}/>
-          <Route path="/reset" element={<ResetPasswordPage/>}/>
-          <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
-          <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/user" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/create" element={<PrivatePage component={CreatePage}/>}/>
-          <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
+          <Route path="/frontend/signup" element={<SignupPage/>}/>
+          <Route path="/frontend/login" element={<LoginPage/>}/>
+          <Route path="/frontend/landing" element={<LandingPage/>}/>
+          <Route path="/frontend/reset/:resetToken" element={<ResetPasswordPage/>}/>
+          <Route path="/frontend/reset" element={<ResetPasswordPage/>}/>
+          <Route path="/frontend/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
+          <Route path="/frontend/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/frontend/user" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/frontend/create" element={<PrivatePage component={CreatePage}/>}/>
+          <Route path="/frontend/" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="*" element={<LandingPage/>}/>
         </Routes>
       </StyledMain>

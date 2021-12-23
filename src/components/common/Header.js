@@ -48,15 +48,15 @@ function Header() {
       <nav>
         {token ? (
           <>
-            <NavLink to="/">All Nicknames</NavLink>
-            <NavLink to="/create">Add Nickname</NavLink>
-            <NavLink to="/user">My Nicknames</NavLink>
-            <NavLink to="/landing" onClick={logout}>Logout</NavLink>
+            <NavLink to="/frontend/">All Nicknames</NavLink>
+            <NavLink to="/frontend/create">Add Nickname</NavLink>
+            <NavLink to="/frontend/user">My Nicknames</NavLink>
+            <NavLink to="/frontend/landing" onClick={logout}>Logout</NavLink>
           </>
         ) : (
           <>
-            <NavLink to="/signup">Signup</NavLink>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/frontend/signup">Signup</NavLink>
+            <NavLink to="/frontend/login">Login</NavLink>
           </>
         )}
       </nav>
