@@ -16,6 +16,9 @@ const StyledNickname = styled.li`
   border-radius: 10px;
   border: solid ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.orange};
+  @media (max-width: 400px) {
+    text-align: center;
+  }
 `;
 
 export default function Nickname(props) {

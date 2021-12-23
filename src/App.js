@@ -21,10 +21,10 @@ const StyledMain = styled.main`
   ${({ theme }) => theme.setFont(2)};
   min-height: 100vh;
   @media (max-width: 450px) {
-    margin-top: 150px;
+    margin-top: 240px;
   }
   @media (max-width: 400px) {
-    margin-top: 180px;
+    margin-top: 300px;
   }
 `
 
@@ -42,6 +42,7 @@ function App() {
           <Route path="/reset" element={<ResetPasswordPage/>}/>
           <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/user/" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreatePage}/>}/>
           <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="*" element={<LandingPage/>}/>

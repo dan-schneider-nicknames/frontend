@@ -9,7 +9,7 @@ export default function UserNicknames() {
     
     return (
         <div>
-            <h2>{username}'s Nicknames</h2>
+            {username && <h2>{username}'s Nicknames</h2>}
             <QueryCall 
                 Component={NicknameList}
                 query={GET_USER_NICKNAMES}

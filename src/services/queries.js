@@ -20,7 +20,7 @@ export const GET_NICKNAMES = gql`
 `;
 
 export const GET_USER_NICKNAMES = gql`
-  query Get_User_Nicknames($username: String!) {
+  query Get_User_Nicknames($username: String) {
     user(username: $username) {
       nicknames {
         ${wantedProperties}
