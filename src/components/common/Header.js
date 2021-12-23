@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "./Form/Button";
 import NavLink from "./NavLink";
+import { useNavigate } from "react-router";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -32,9 +33,11 @@ const StyledHeader = styled.header`
 `;
 
 function Header() {
+  const navigate = useNavigate()
   const token = localStorage.getItem("token")
   const logout = () => {
     localStorage.removeItem("token")
+    navigate("/frontend/")
     window.location.reload();
   };
 
