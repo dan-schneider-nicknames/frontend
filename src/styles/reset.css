@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1.5;
+  background-color: black;
 }
 ol, ul {
 	list-style: none;
@@ -44,10 +45,10 @@ table {
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    max-width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
 	font-family: 'Playfair Display', serif;
 	font-size: calc(1.618rem / 2); 
 }
@@ -117,4 +118,9 @@ span {
 
 .button-6:hover span, .button-6:focus span {
   color: #51CB20;
+}
+@media (max-width: 400px) {
+  .button-6 {
+    margin-top: .5rem;
+  }
 }

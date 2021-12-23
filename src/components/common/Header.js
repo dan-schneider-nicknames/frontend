@@ -13,8 +13,21 @@ const StyledHeader = styled.header`
   align-items: center;
   font-style: italic;
   h1 {
-    ${({ theme }) => theme.setFont(4)}
+    ${({ theme }) => theme.setFont(3)}
     font-weight: 600;
+  }
+  @media (max-width: 450px) {
+    flex-direction: column;
+    top: 0;
+    position: fixed;
+    h1 {
+      ${({ theme }) => theme.setFont(2)}
+    }
+    nav {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
   }
 `;
 
@@ -29,7 +42,7 @@ function Header() {
     <StyledHeader>
       <Link to="/landing">
         <Button id="TitleHeader">
-          <h1>DAN SCHNEIDER NICKNAMES</h1>
+          <h1>SCHNEIDER SOCIAL</h1>
         </Button>
       </Link>
       <nav>

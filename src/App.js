@@ -20,6 +20,12 @@ const StyledMain = styled.main`
   color: ${({ theme }) => theme.colors.tan};
   ${({ theme }) => theme.setFont(2)};
   min-height: 100vh;
+  @media (max-width: 450px) {
+    margin-top: 150px;
+  }
+  @media (max-width: 400px) {
+    margin-top: 180px;
+  }
 `
 
 function App() {

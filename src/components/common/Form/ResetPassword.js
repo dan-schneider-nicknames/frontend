@@ -20,7 +20,6 @@ export default function ResetPassword(props) {
     }
     
     useEffect(() => {
-        console.log(data)
         if (data?.resetPassword) {
           localStorage.setItem("token", data.resetPassword)
           navigate("/")
