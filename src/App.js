@@ -24,7 +24,7 @@ const StyledMain = styled.main`
     margin-top: 240px;
   }
   @media (max-width: 400px) {
-    margin-top: 300px;
+    margin-top: 350px;
   }
 `
 
