@@ -14,7 +14,10 @@ const StyledInput = styled.input`
   font-weight: 600;
   margin: 1rem;
   text-align: center;
-  width: min-content;
+  width: 60%;
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 export default function Input(props) {

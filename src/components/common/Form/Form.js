@@ -16,10 +16,17 @@ export const StyledForm = styled.form`
     border-radius: 10px;
     width: 80%;
     border: solid ${({ theme }) => theme.colors.blue};
+    @media (max-width: 400px) {
+      width: 95%;
+    }
   }
   legend {
     ${({ theme }) => theme.setFont(3)}
     margin-left: 5rem;
+    @media (max-width: 550px){
+      text-align: center;
+      margin-left: 0;
+    }
   }
 `;
 
