@@ -42,7 +42,7 @@ function App() {
           <Route path="/reset" element={<ResetPasswordPage/>}/>
           <Route path="/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/user/" element={<PrivatePage component={UserNicknames}/>}/>
+          <Route path="/user" element={<PrivatePage component={UserNicknames}/>}/>
           <Route path="/create" element={<PrivatePage component={CreatePage}/>}/>
           <Route path="/" element={<PrivatePage component={NicknamesPage}/>}/>
           <Route path="*" element={<LandingPage/>}/>
