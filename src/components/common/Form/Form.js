@@ -5,6 +5,7 @@ import Button from "./Button";
 import useForm from "../../../hooks/useForm";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import LoginForgot from "../HigherOrder/LoginForgot";
 
 export const StyledForm = styled.form`
   width: 100%;
@@ -31,7 +32,7 @@ export const StyledForm = styled.form`
 `;
 
 export default function Form(props) {
-  const { title, initialState, schema, submit } = props;
+  const { title, initialState, schema, submit, Component } = props;
   const [formState, handleChange, reset, errors, disabled] = useForm(
     initialState,
     schema
@@ -67,6 +68,7 @@ export default function Form(props) {
         <Button type="submit" disabled={disabled}>
           Submit
         </Button>
+      {Component && <Component />}
       </fieldset>
     </StyledForm>
   );
@@ -75,5 +77,6 @@ Form.propTypes = {
   initialState: PropTypes.object.isRequired,
   schema: PropTypes.object,
   submit: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  Component: PropTypes.elementType,
 };
