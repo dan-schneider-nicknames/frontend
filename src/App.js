@@ -1,19 +1,15 @@
-import PrivatePage from "./components/common/HigherOrder/PrivatePage";
-import LoginPage from "./components/pages/LoginPage"
-import SignupPage from "./components/pages/SignupPage"
-import NicknamesPage from "./components/pages/NicknamesPage"
+
 import Header from "./components/common/Header";
-import UserNicknames from "./components/pages/UserNicknames";
+
 import React from "react"
-import { Routes, Route } from "react-router-dom"
+
+import { Outlet } from "react-router";
 import { ApolloProvider } from "@apollo/client"
 import "./styles/reset.css"
 import styled from "styled-components";
 import client from "../src/services/client"
-import CreatePage from "./components/pages/CreatePage";
-import LandingPage from "./components/pages/LandingPage";
-import ResetPasswordPage from "./components/pages/ResetPasswordPage";
 
+import Footer from "./components/common/Footer";
 const StyledMain = styled.main`
   padding: 1rem;
   background-color: ${({ theme }) => theme.colors.black};
@@ -33,21 +29,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Header/>
-      <StyledMain>
-        <Routes>
-          <Route path="/frontend/signup" element={<SignupPage/>}/>
-          <Route path="/frontend/login" element={<LoginPage/>}/>
-          <Route path="/frontend/landing" element={<LandingPage/>}/>
-          <Route path="/frontend/reset/:resetToken" element={<ResetPasswordPage/>}/>
-          <Route path="/frontend/reset" element={<ResetPasswordPage/>}/>
-          <Route path="/frontend/page/:page" element={<PrivatePage component={NicknamesPage}/>}/>
-          <Route path="/frontend/user/:username" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/frontend/user" element={<PrivatePage component={UserNicknames}/>}/>
-          <Route path="/frontend/create" element={<PrivatePage component={CreatePage}/>}/>
-          <Route path="/frontend/" element={<PrivatePage component={NicknamesPage}/>}/>
-          <Route path="*" element={<LandingPage/>}/>
-        </Routes>
-      </StyledMain>
+        <StyledMain>
+          <Outlet/>
+        </StyledMain>
+      <Footer/>
     </ApolloProvider>
   );
 }

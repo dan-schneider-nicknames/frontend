@@ -37,13 +37,13 @@ function Header() {
   const token = localStorage.getItem("token")
   const logout = () => {
     localStorage.removeItem("token")
-    navigate("/frontend/")
+    navigate("/frontend")
     window.location.reload();
   };
 
   return (
     <StyledHeader>
-      <Link to="/landing">
+      <Link to="/frontend">
         <Button id="TitleHeader">
           <h1>SCHNEIDER SOCIAL</h1>
         </Button>
@@ -51,15 +51,15 @@ function Header() {
       <nav>
         {token ? (
           <>
-            <NavLink to="/frontend/">All Nicknames</NavLink>
-            <NavLink to="/frontend/create">Add Nickname</NavLink>
-            <NavLink to="/frontend/user">My Nicknames</NavLink>
-            <NavLink to="/frontend/landing" onClick={logout}>Logout</NavLink>
+            <NavLink to="page">All Nicknames</NavLink>
+            <NavLink to="create">Add Nickname</NavLink>
+            <NavLink to="user">My Nicknames</NavLink>
+            <NavLink to="frontend" onClick={logout}>Logout</NavLink>
           </>
         ) : (
           <>
-            <NavLink to="/frontend/signup">Signup</NavLink>
-            <NavLink to="/frontend/login">Login</NavLink>
+            <NavLink to="signup">Signup</NavLink>
+            <NavLink to="login">Login</NavLink>
           </>
         )}
       </nav>

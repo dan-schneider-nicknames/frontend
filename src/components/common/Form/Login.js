@@ -17,7 +17,7 @@ function Login(props) {
   useEffect(() => {
     if (data?.login) {
       localStorage.setItem("token", data.login)
-      navigate("/frontend/")
+      navigate("/frontend")
       window.location.reload()
     }
   }, [data]); // eslint-disable-line

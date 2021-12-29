@@ -5,7 +5,6 @@ import Button from "./Button";
 import useForm from "../../../hooks/useForm";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import LoginForgot from "../HigherOrder/LoginForgot";
 
 export const StyledForm = styled.form`
   width: 100%;
@@ -62,12 +61,14 @@ export default function Form(props) {
           error={errors[value]}
           />
           ))}
+          <div>
         <Button type="reset" onClick={reset}>
           Reset
         </Button>
         <Button type="submit" disabled={disabled}>
           Submit
         </Button>
+          </div>
       {Component && <Component />}
       </fieldset>
     </StyledForm>
