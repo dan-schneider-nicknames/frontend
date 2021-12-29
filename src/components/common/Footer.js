@@ -6,7 +6,7 @@ export default function Footer() {
         <footer>
             <a href="https://github.com/dan-schneider-nicknames" target="_blank">
                 <Button>
-                    Repository
+                    Wanna check out the code?
                 </Button>
             </a>
         </footer>

@@ -9,12 +9,12 @@ export default function PageLinks() {
     const pageInt = parseInt(page) || 0;
     return (
         <div>
-            {pageInt > 0 && <Link to={`/page/${pageInt - 1}`}>
+            {pageInt > 0 && <Link to={`/frontend/page/${pageInt - 1}`}>
                 <Button> 
                     Prev Page 
                 </Button>
             </Link>}
-            <Link to={`/page/${pageInt + 1}`}>
+            <Link to={`/frontend/page/${pageInt + 1}`}>
                 <Button> 
                     Next Page 
                 </Button>

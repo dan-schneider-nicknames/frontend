@@ -31,7 +31,7 @@ export const StyledForm = styled.form`
 `;
 
 export default function Form(props) {
-  const { title, initialState, schema, submit } = props;
+  const { title, initialState, schema, submit, Component } = props;
   const [formState, handleChange, reset, errors, disabled] = useForm(
     initialState,
     schema
@@ -61,12 +61,15 @@ export default function Form(props) {
           error={errors[value]}
           />
           ))}
+          <div>
         <Button type="reset" onClick={reset}>
           Reset
         </Button>
         <Button type="submit" disabled={disabled}>
           Submit
         </Button>
+          </div>
+      {Component && <Component />}
       </fieldset>
     </StyledForm>
   );
@@ -75,5 +78,6 @@ Form.propTypes = {
   initialState: PropTypes.object.isRequired,
   schema: PropTypes.object,
   submit: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  Component: PropTypes.elementType,
 };
