@@ -18,7 +18,7 @@ export default function CreateNickname(props) {
   useEffect(() => {
     if (data && !error && !loading) {
       const { username } = data.addNickname.user;
-      navigate(`/frontend/user/${username}`);
+      navigate(`/user/${username}`);
     }
   }, [data]); // eslint-disable-line
 

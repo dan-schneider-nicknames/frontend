@@ -22,7 +22,7 @@ export default function ResetPassword(props) {
     useEffect(() => {
         if (data?.resetPassword) {
           localStorage.setItem("token", data.resetPassword)
-          navigate("/frontend/")
+          navigate("/")
           window.location.reload()
         }
       }, [data]); // eslint-disable-line

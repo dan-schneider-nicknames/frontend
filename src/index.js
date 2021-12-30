@@ -22,9 +22,9 @@ import FourOFour from "./components/common/FourOFour"
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path="frontend" element={<App/>}>
+          <Route element={<App/>}>
             <Route index element={<LandingPage/>}/>
             <Route path="signup" element={<SignupPage/>}/>
             <Route path="login" element={<LoginPage/>}/>

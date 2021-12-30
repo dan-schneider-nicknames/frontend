@@ -17,7 +17,7 @@ function Signup(props) {
   useEffect(() => {
     if (data?.addUser) {
       localStorage.setItem("token", data.addUser);
-      navigate("/frontend/");
+      navigate("/");
       window.location.reload()
     }
   }, [data]); // eslint-disable-line

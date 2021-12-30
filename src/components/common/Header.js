@@ -37,13 +37,13 @@ function Header() {
   const token = localStorage.getItem("token")
   const logout = () => {
     localStorage.removeItem("token")
-    navigate("/frontend")
+    navigate("/")
     window.location.reload();
   };
 
   return (
     <StyledHeader>
-      <Link to="/frontend">
+      <Link to="/">
         <Button id="TitleHeader">
           <h1>SCHNEIDER SOCIAL</h1>
         </Button>
