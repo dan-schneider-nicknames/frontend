@@ -30,6 +30,9 @@ const StyledHeader = styled.header`
       flex-wrap: wrap;
     }
   }
+  @media (max-width:380px) {
+    position: static
+  }
 `;
 
 function Header() {
