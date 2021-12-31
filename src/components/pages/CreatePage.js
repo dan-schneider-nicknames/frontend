@@ -7,8 +7,7 @@ export default function CreatePage() {
     return (
         <MutationCall 
             query={ADD_NICKNAME} 
-            Component={CreateNickname} 
-            errorMessage="That Nickname has already been created"
+            Component={CreateNickname}
         />
     )
 }

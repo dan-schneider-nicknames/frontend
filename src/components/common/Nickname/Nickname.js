@@ -43,7 +43,7 @@ export default function Nickname(props) {
   return (
     <StyledNickname>
       <h3>{nickname}</h3>
-      <Link to={`/frontend/user/${username}`}>
+      <Link to={`/user/${username}`}>
         <Button className="creator">
           By {username}
         </Button>
