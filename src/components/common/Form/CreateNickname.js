@@ -29,6 +29,10 @@ export default function CreateNickname(props) {
     () => !nickname.includes("Dan") && !nickname.includes("Schneider"),
     [nickname]
   );
+  const foul = useMemo(
+    () => nickname.toLowerCase().includes("nigger") || nickname.toLowerCase().includes("nigga"),
+    [nickname]
+  );
 
   return (
     <>
@@ -37,7 +41,8 @@ export default function CreateNickname(props) {
           <legend>Create a new Nickname</legend>
           <Input name="nickname" value={nickname} handleChange={handleChange} />
           {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
-          <Button type="submit" disabled={disabled}>
+          {foul && <p>Please refrain from using such language</p>}
+          <Button type="submit" disabled={disabled, foul}>
             Submit
           </Button>
         </fieldset>

@@ -6,11 +6,10 @@ const nicknameMap = nickname => (
 )
 
 export default function NicknameList(props) {
-    const { nicknames, user } = props.data
+    const { nicknames } = props
     return (
         <ul>
             {nicknames?.map(nicknameMap)}
-            {user?.nicknames?.map(nicknameMap)}
-      </ul>
+        </ul>
     )
 }

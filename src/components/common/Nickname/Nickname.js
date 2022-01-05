@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
-import { DELETE_NICKNAME} from "../../../services/mutations";
+import { DELETE_NICKNAME } from "../../../services/mutations";
 import options from "../../../services/options";
 import styled from "styled-components";
 import Button from "../Form/Button";
@@ -23,20 +23,23 @@ const StyledNickname = styled.li`
 
 export default function Nickname(props) {
   const { user, nickname, nickname_id, createdBy, ...rest } = props;
-  const { username } = user
-  const [delNick, { data, loading, error }] = useMutation(DELETE_NICKNAME, options);
-        
+  const { username } = user;
+  const [delNick, { data, loading, error }] = useMutation(
+    DELETE_NICKNAME,
+    options
+  );
+
   const handleDelete = () => {
     if (!loading) {
       delNick({ variables: { nickname_id } });
     }
   };
-  
+
   useEffect(() => {
     if (data) {
       window.location.reload();
     }
-  }, [data])
+  }, [data]);
 
   if (error) return <p>{error.message}</p>;
 
@@ -44,16 +47,10 @@ export default function Nickname(props) {
     <StyledNickname>
       <h3>{nickname}</h3>
       <Link to={`/user/${username}`}>
-        <Button className="creator">
-          By {username}
-        </Button>
+        <Button className="creator">By {username}</Button>
       </Link>
-      <LikeButton {...rest} nickname_id={nickname_id}/>
-      {createdBy && (
-        <Button onClick={handleDelete}> 
-          Delete 
-        </Button>
-      )}
+      <LikeButton {...rest} nickname_id={nickname_id} />
+      {createdBy && <Button onClick={handleDelete}>Delete</Button>}
     </StyledNickname>
   );
 }
@@ -66,6 +63,6 @@ export const NicknamePropTypes = {
   likes: PropTypes.number.isRequired,
   liked: PropTypes.bool.isRequired,
   createdBy: PropTypes.bool.isRequired,
-}
+};
 
 Nickname.propTypes = NicknamePropTypes;

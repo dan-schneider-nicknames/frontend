@@ -14,10 +14,21 @@ export default function NicknamesPage() {
     <div>
       <QueryCall 
         query={GET_NICKNAMES} 
-        Component={NicknameList} 
+        Component={queryCallback} 
         variables={{ page: pageInt }}
       />
-      <PageLinks/>
     </div>
   );
+}
+
+const queryCallback = props => {
+  const { nicknames } = props.data
+  const lastNickname = nicknames[nicknames.length -1]
+  const last = lastNickname.nickname === "Last Nickname"
+  return (
+    <>  
+      <NicknameList nicknames={nicknames}/>
+      <PageLinks lastPage={last}/>
+    </>
+  )
 }

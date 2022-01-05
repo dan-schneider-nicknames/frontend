@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Button from "./Form/Button"
 
 
-export default function PageLinks() {
+export default function PageLinks(props) {
+    const { lastPage } = props
     const { page } = useParams();
     const pageInt = parseInt(page) || 0;
     return (
@@ -14,11 +15,11 @@ export default function PageLinks() {
                     Prev Page 
                 </Button>
             </Link>}
-            <Link to={`/page/${pageInt + 1}`}>
+            {!lastPage && <Link to={`/page/${pageInt + 1}`}>
                 <Button> 
                     Next Page 
                 </Button>
-            </Link>
+            </Link>}
         </div>
     )
 }
