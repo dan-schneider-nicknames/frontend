@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { GET_NICKNAMES } from "../../services/queries";
+import useVisible from "../../hooks/useVisible";
 
 import NicknameList from "../common/Nickname/NicknameList";
 import QueryCall from "../common/HigherOrder/QueryCall";
@@ -24,12 +25,14 @@ const QueryCallback = props => {
   const lastNickname = nicknames[nicknames.length -1]
   const last = lastNickname.nickname === "Last Nickname"
   const endOfList = useRef()
+  const isVisible = useVisible(endOfList, "50px")
   return (
     <>  
       <NicknameList nicknames={nicknames}/>
       <div ref={endOfList} />
-      {!last && <NicknamesPage page={page + 1}
-      />}
+      {isVisible && !last && (
+        <NicknamesPage page={page + 1}/>
+      )}
     </>
   )
 }

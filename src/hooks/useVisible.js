@@ -6,8 +6,11 @@ export default function useVisible(ref, rootMargin = "0px") {
   useEffect(() => {
     if (ref.current == null) return
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin }
+        ([entry]) => {
+            if (isVisible) return observer.unobserve(ref.current)
+            setIsVisible(entry.isIntersecting)
+        },
+        { rootMargin }
     )
     observer.observe(ref.current)
     return () => {
