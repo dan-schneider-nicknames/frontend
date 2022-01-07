@@ -17,6 +17,7 @@ export default function QueryCall(props) {
             data={data} 
             callQuery={refetch} 
             error={error}
+            {...props}
         />
     )
 }

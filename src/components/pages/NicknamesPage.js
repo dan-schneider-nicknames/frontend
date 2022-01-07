@@ -1,34 +1,35 @@
-import React from "react";
-import { useParams } from "react-router";
+import React, { useRef } from "react";
 import { GET_NICKNAMES } from "../../services/queries";
 
 import NicknameList from "../common/Nickname/NicknameList";
-import PageLinks from "../common/PageLinks";
 import QueryCall from "../common/HigherOrder/QueryCall";
 
-export default function NicknamesPage() {
-  const { page } = useParams();
-  const pageInt = parseInt(page) || 0;
+export default function NicknamesPage(props) {
+  const { page = 0 } = props
 
   return (
-    <div>
+    <section>
       <QueryCall 
         query={GET_NICKNAMES} 
-        Component={queryCallback} 
-        variables={{ page: pageInt }}
+        Component={QueryCallback} 
+        variables={{ page }}
       />
-    </div>
+    </section>
   );
 }
 
-const queryCallback = props => {
+const QueryCallback = props => {
   const { nicknames } = props.data
+  const { page } = props.variables 
   const lastNickname = nicknames[nicknames.length -1]
   const last = lastNickname.nickname === "Last Nickname"
+  const endOfList = useRef()
   return (
     <>  
       <NicknameList nicknames={nicknames}/>
-      <PageLinks lastPage={last}/>
+      <div ref={endOfList} />
+      {!last && <NicknamesPage page={page + 1}
+      />}
     </>
   )
 }
