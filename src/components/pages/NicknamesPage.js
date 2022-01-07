@@ -26,7 +26,7 @@ const QueryCallback = props => {
   const lastNickname = nicknames[nicknames.length -1]
   const last = lastNickname.nickname === "Last Nickname"
   const endOfList = useRef()
-  const isVisible = useVisible(endOfList, "50px")
+  const isVisible = useVisible(endOfList, "100px")
   return (
     <>  
       <NicknameList nicknames={nicknames}/>

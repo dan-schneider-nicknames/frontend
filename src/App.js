@@ -17,10 +17,10 @@ const StyledMain = styled.main`
   ${({ theme }) => theme.setFont(2)};
   min-height: 100vh;
   @media (max-width: 450px) {
-    margin-top: 240px;
+    margin-top: 300px;
   }
   @media (max-width: 400px) {
-    margin-top: 350px;
+    margin-top: 400px;
   }
 `
 

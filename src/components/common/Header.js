@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   justify-content: space-around;
   align-items: center;
   font-style: italic;
+  /* position: static; */
   h1 {
     ${({ theme }) => theme.setFont(3)}
     font-weight: 600;
@@ -30,7 +31,7 @@ const StyledHeader = styled.header`
       flex-wrap: wrap;
     }
   }
-  @media (max-width:380px) {
+  @media (max-width: 380px) {
     position: static
   }
 `;
