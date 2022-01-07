@@ -15,7 +15,7 @@ export default function useVisible(ref, rootMargin = "0px") {
     observer.observe(ref.current)
     return () => {
       if (ref.current == null) return
-      observer.unobserve(ref.current)
+      observer.unobserve(ref.current) // eslint-disable-line
     }
   }, [ref.current, rootMargin]) // eslint-disable-line
 
