@@ -30,9 +30,7 @@ ReactDOM.render(
             <Route path="login" element={<LoginPage/>}/>
             <Route path="reset" element={<RequestResetPage/>}/>
             <Route path="reset/:resetToken" element={<ResetPasswordPage/>}/>
-            <Route path="page" element={<PrivatePage component={NicknamesPage}/>}>
-              <Route path=":page" element={<PrivatePage component={NicknamesPage}/>}/>
-            </Route>
+            <Route path="page/:ranked" element={<PrivatePage component={NicknamesPage}/>}/>
             <Route path="user" element={<PrivatePage component={UserNicknames}/>}>
               <Route path=":username" element={<PrivatePage component={UserNicknames}/>}/>
             </Route>

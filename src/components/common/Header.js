@@ -54,7 +54,8 @@ function Header() {
       <nav>
         {token ? (
           <>
-            <NavLink to="page">All Nicknames</NavLink>
+            <NavLink to="page/ranked">Ranked Nicknames</NavLink>
+            <NavLink to="page/recent">Recent Nicknames</NavLink>
             <NavLink to="create">Add Nickname</NavLink>
             <NavLink to="user">My Nicknames</NavLink>
             <NavLink to="frontend" onClick={logout}>Logout</NavLink>
