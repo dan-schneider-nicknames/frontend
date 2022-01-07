@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
 export default function Footer() {
   return (
     <StyledFooter>
-      <a href="https://github.com/dan-schneider-nicknames" target="_blank">
+      <a href="https://github.com/dan-schneider-nicknames" rel="noreferrer" target="_blank">
         <Button>Wanna check out the code?</Button>
       </a>
     </StyledFooter>

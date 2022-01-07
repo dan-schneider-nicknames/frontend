@@ -42,7 +42,7 @@ export default function CreateNickname(props) {
           <Input name="nickname" value={nickname} handleChange={handleChange} />
           {disabled && <p>Must contain 'Dan' or 'Schneider'</p>}
           {foul && <p>Please refrain from using such language</p>}
-          <Button type="submit" disabled={disabled, foul}>
+          <Button type="submit" disabled={disabled || foul}>
             Submit
           </Button>
         </fieldset>
