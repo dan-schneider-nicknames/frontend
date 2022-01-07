@@ -106,7 +106,7 @@ span {
   transition: all 0.5s ease-Out;
 }
 
-.button-6:hover .spin, .button:focus .spin {
+.button-6:hover .spin, .button:focus .spin, .button-6.hover .spin {
   width: 400%;
   height: 500%;
   opacity: 1;
@@ -116,7 +116,7 @@ span {
   transform: rotate(460deg);
 }
 
-.button-6:hover span, .button-6:focus span {
+.button-6:hover span, .button-6:focus span, .button-6.hover span {
   color: #51CB20;
 }
 @media (max-width: 400px) {
